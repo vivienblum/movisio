@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { Provider } from 'mobx-react'
 
-// import { UserStore, PortfolioStore, ProfileStore } from 'stores'
+import { UserStore } from './../../stores'
 
 const muiTheme = getMuiTheme({
   fontFamily: 'Proxima Nova Light, sans-serif',
@@ -15,7 +15,7 @@ const muiTheme = getMuiTheme({
 
 const state = {
   // portfolioStore: PortfolioStore,
-  // userStore: UserStore,
+  userStore: UserStore,
   // profileStore: ProfileStore
 }
 
