@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './styles/Landing.scss'
 
 class Landing extends Component {
   render() {
