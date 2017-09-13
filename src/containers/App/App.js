@@ -14,14 +14,11 @@ const muiTheme = getMuiTheme({
 })
 
 const state = {
-  // portfolioStore: PortfolioStore,
-  userStore: UserStore,
-  // profileStore: ProfileStore
+  userStore: UserStore
 }
 
 class App extends Component {
   componentDidMount() {
-    // Remove when landing page is separated
     console.log(window.location.pathname)
     if (window.location.pathname !== '/') {
       // UserStore.user.load()
