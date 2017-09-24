@@ -8,6 +8,7 @@ export default class FetchResource {
         const urlParams = this.getURLParams(body)
         fetch(url + urlParams, {
           headers,
+          mode: 'no-cors',
         }).then((response) => {
           if (response.ok) {
             response.json().then((data) => {
@@ -50,7 +51,8 @@ export default class FetchResource {
         fetch(url, {
           headers,
           body: JSON.stringify(body),
-          method: 'POST'
+          method: 'POST',
+          mode: 'no-cors',
         }).then((response) => {
           if (response.ok) {
             response.json().then((data) => {
@@ -174,9 +176,9 @@ export default class FetchResource {
   static getHeaders() {
     return new Promise((resolve) => {
       const headers = new Headers({
-        Authorization: `Basic ${Cookie.get('mf_token')}`,
+        Authorization: `${Cookie.get('mf_token')}`,
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       })
       resolve(headers)
     })
