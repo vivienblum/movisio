@@ -1,68 +1,14 @@
 @import "src/styles/Base.scss";
 
 .collection-grid {
-  background-color: red;
-  position: relative;
-  min-height: 200px;
-
-  #no-posts {
-    width: 100%;
-    min-height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    h4,
-    h5 {
-      font-size: 1.5em;
-      color: $TEXT;
-    }
-
-    h5 {
-      font-size: 1.2em;
-    }
-  }
-
-  .grid {
-    transition: 1s opacity ease;
-  }
-
-  .grid.loading {
-    opacity: 0;
-    transition: 0s opacity ease;
-  }
-
-  #grid-sizer,
-  .grid-item {
-    width: 33.33%;
-  }
-
-  .grid-item--width2 {
-    width: 100%;
-  }
-
-  .grid-loader {
-    position: absolute;
-    top: 50px;
-    left: 40%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .PostGrid {
-    #grid-sizer,
-    .grid-item {
-      width: 50%;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .PostGrid {
-    #grid-sizer,
-    .grid-item {
-      width: 100%;
-    }
+  .collection-card {
+    // width: 33%;
+    // height: auto;
+    float: left;
+    width: 210px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
   }
 }

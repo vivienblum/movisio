@@ -6,9 +6,12 @@ import { CollectionCard } from "../../shared/collection";
 class MovieCard extends Component {
   render() {
     return (
-      <div>
-        <CollectionCard>MovieCard</CollectionCard>
-      </div>
+      <CollectionCard>
+        <img
+          alt=""
+          src="http://www.funsundivetravel.com/wp-content/uploads/2015/02/200x300.gif"
+        />
+      </CollectionCard>
     );
   }
 }
