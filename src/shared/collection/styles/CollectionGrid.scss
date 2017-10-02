@@ -1,9 +1,9 @@
-@import "src/styles/Base.scss";
+@import "src/styles/base.scss";
 
 .collection-grid {
   .collection-card {
-    // width: 33%;
-    // height: auto;
+    width: 33%;
+    height: auto;
     float: left;
     width: 210px;
     margin: 5px;
@@ -14,5 +14,29 @@
   .collection-card:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     cursor: pointer;
+  }
+}
+.MediaContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  video {
+    width: 100%;
+  }
+}
+
+.YouTubeMediaContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
