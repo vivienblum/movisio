@@ -12,14 +12,22 @@ export default class CollectionGrid extends Component {
   }
 
   componentWillMount() {
-    const nbLine = Math.ceil(this.props.children.length / this.state.nbPerLine)
-    this.setState({ nbLine })
+    // const nbLine = Math.ceil(this.props.children.length / this.state.nbPerLine)
+    // this.setState({ nbLine })
   }
 
   renderLine(array) {
     return array.map(line => {
-      return React.cloneElement(line)
+      return React.cloneElement(line, {
+        onClick: this.handleExpand.bind(this, line)
+      })
     })
+  }
+
+  handleExpand = e => {
+    const indexSelected = e.key
+    // console.log(indexSelected)
+    this.setState({ indexSelected })
   }
 
   renderChildren() {
@@ -27,6 +35,7 @@ export default class CollectionGrid extends Component {
     const matrix = []
     var i = 0
     var currentLine = 0
+    var lineDisplay = null
     React.Children.forEach(this.props.children, (child, index) => {
       if (i >= nbPerLine) {
         currentLine++
@@ -38,9 +47,20 @@ export default class CollectionGrid extends Component {
       i++
       matrix[currentLine].push(child)
     })
+    if (this.state.indexSelected) {
+      console.log(
+        this.state.indexSelected,
+        Math.floor(this.state.indexSelected / this.state.nbPerLine)
+      )
+      lineDisplay =
+        Math.floor(this.state.indexSelected / this.state.nbPerLine) + 1
+      const el = <div key={lineDisplay} className="line-display" />
+      // console.log(this.state.indexSelected, lineDisplay)
+      matrix.splice(lineDisplay, 0, el)
+    }
     return matrix.map((line, index) => {
-      if (index === this.state.indexSelected) {
-        return <div className="line-display" key={index} />
+      if (index === lineDisplay) {
+        return line
       }
       return (
         <div

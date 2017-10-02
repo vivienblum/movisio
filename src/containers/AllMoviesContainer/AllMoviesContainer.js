@@ -7,10 +7,10 @@ import MovieCard from "./MovieCard"
 class AllMoviesContainer extends Component {
   state = { indexExpanded: 2 }
 
-  handleExpand = index => {
-    console.log(index)
-    this.setState({ indexExpanded: index })
-  }
+  // handleExpand = index => {
+  //   // console.log(index)
+  //   this.setState({ indexExpanded: index })
+  // }
 
   render() {
     const movies = [
@@ -37,13 +37,7 @@ class AllMoviesContainer extends Component {
         <h1>AllMoviesContainer</h1>
         <CollectionGrid>
           {movies.map((movie, i) => {
-            return (
-              <MovieCard
-                onClick={this.handleExpand.bind(this, i)}
-                movie={movie}
-                key={i}
-              />
-            )
+            return <MovieCard movie={movie} key={i} />
           })}
         </CollectionGrid>
       </div>

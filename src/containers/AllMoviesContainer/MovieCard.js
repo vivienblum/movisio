@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
-import { func } from "prop-types"
+// import { func } from "prop-types"
 import { CollectionCard } from "../../shared/collection"
 
 @asReactiveLoader
 class MovieCard extends Component {
   static propTypes = {
-    onClick: func.isRequired
+    // onClick: func.isRequired
   }
 
   render() {
