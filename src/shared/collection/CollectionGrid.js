@@ -48,14 +48,9 @@ export default class CollectionGrid extends Component {
       matrix[currentLine].push(child)
     })
     if (this.state.indexSelected) {
-      console.log(
-        this.state.indexSelected,
-        Math.floor(this.state.indexSelected / this.state.nbPerLine)
-      )
       lineDisplay =
         Math.floor(this.state.indexSelected / this.state.nbPerLine) + 1
       const el = <div key={lineDisplay} className="line-display" />
-      // console.log(this.state.indexSelected, lineDisplay)
       matrix.splice(lineDisplay, 0, el)
     }
     return matrix.map((line, index) => {
@@ -63,11 +58,7 @@ export default class CollectionGrid extends Component {
         return line
       }
       return (
-        <div
-          className="line-movie"
-          key={index}
-          style={{ borderStyle: "solid", borderColor: "red" }}
-        >
+        <div className="line-movie" key={index}>
           {this.renderLine(line)}
         </div>
       )

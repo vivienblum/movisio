@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   .collection-card {
-    width: 33%;
+    // width: 33%;
     height: auto;
     float: left;
-    width: 210px;
-    margin: 5px;
+    // width: 210px;
+    padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
@@ -16,6 +16,9 @@
   .collection-card:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     cursor: pointer;
+  }
+  .collection-card.selected {
+    background-color: black;
   }
   .line-display {
     min-height: 100px;
