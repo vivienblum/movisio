@@ -1,12 +1,16 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
-// import { func } from "prop-types"
+import { func } from "prop-types"
 import { CollectionCard } from "../../shared/collection"
 
 @asReactiveLoader
 class MovieCard extends Component {
   static propTypes = {
-    // onClick: func.isRequired
+    onMovieChange: func.isRequired
+  }
+
+  static defaultProps = {
+    isSelected: false
   }
 
   handleClick() {
@@ -15,9 +19,9 @@ class MovieCard extends Component {
   }
 
   render() {
-    // const { onClick } = this.props
+    const { isSelected } = this.props
     return (
-      <CollectionCard onClick={this.handleClick.bind(this)}>
+      <CollectionCard onClick={this.handleClick.bind(this)} isSelected={isSelected}>
         <img
           alt=""
           src="http://www.funsundivetravel.com/wp-content/uploads/2015/02/200x300.gif"

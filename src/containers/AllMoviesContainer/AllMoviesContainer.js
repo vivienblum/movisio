@@ -38,15 +38,13 @@ class AllMoviesContainer extends Component {
   }
 
   render() {
-
-    // const { indexExpanded } = this.state
-    // TODO createElement MovieExpanded
+    const { indexExpanded } = this.state
     return (
       <div>
         <h1>AllMoviesContainer</h1>
         <CollectionGrid childToDisplay={this.getChildToDisplay()}>
           {movies.map((movie, i) => {
-            return <MovieCard movie={movie} key={i} onMovieChange={this.handleExpand.bind(this, i)} />
+            return <MovieCard movie={movie} key={i} onMovieChange={this.handleExpand.bind(this, i)} isSelected={i === indexExpanded}/>
           })}
         </CollectionGrid>
       </div>
