@@ -1,0 +1,38 @@
+@import "src/styles/base.scss";
+
+.collection-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .line-display {
+    min-height: 100px;
+    width: 100%;
+    background-color: black;
+  }
+  .line-movie {
+    display: flex;
+  }
+  .collection-card {
+    // width: 33%;
+    // height: auto;
+    // float: left;
+    // TODO enlever
+    width: 210px;
+    height: 310px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  .collection-card:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    cursor: pointer;
+  }
+  .collection-card.selected {
+    background-color: black;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

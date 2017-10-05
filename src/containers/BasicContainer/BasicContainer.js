@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class BasicContainer extends Component {
   render() {
-    return (
-      <div>
-        <p>BasicContainer</p>
-      </div>
-    )
+    const { children } = this.props;
+    return <div>{children}</div>;
   }
 }
 
-export default BasicContainer
+export default BasicContainer;
