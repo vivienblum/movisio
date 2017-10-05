@@ -9,10 +9,15 @@ class MovieCard extends Component {
     // onClick: func.isRequired
   }
 
+  handleClick() {
+    this.props.onClick()
+    this.props.onMovieChange()
+  }
+
   render() {
-    const { onClick } = this.props
+    // const { onClick } = this.props
     return (
-      <CollectionCard onClick={onClick}>
+      <CollectionCard onClick={this.handleClick.bind(this)}>
         <img
           alt=""
           src="http://www.funsundivetravel.com/wp-content/uploads/2015/02/200x300.gif"

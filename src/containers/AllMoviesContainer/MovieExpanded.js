@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
 // import { func } from "prop-types"
-import { CollectionCard } from "../../shared/collection"
 
 @asReactiveLoader
 class MovieExpanded extends Component {
@@ -10,10 +9,9 @@ class MovieExpanded extends Component {
   }
 
   render() {
-    const { onClick } = this.props
     return (
       <div>
-        <h1>MovieExpanded</h1>
+        <h1 style={{color: 'white'}}>{this.props.movie}</h1>
       </div>
     )
   }
