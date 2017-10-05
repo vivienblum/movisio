@@ -9,18 +9,18 @@ const movies = [
   "movie2",
   "movie3",
   "movie4",
-  "movie1",
-  "movie2",
-  "movie3",
-  "movie4",
-  "movie1",
-  "movie2",
-  "movie3",
-  "movie4",
-  "movie1",
-  "movie2",
-  "movie3",
-  "movie4"
+  "movie5",
+  "movie6",
+  "movie7",
+  "movie8",
+  "movie9",
+  "movie10",
+  "movie11",
+  "movie12",
+  "movie13",
+  "movie14",
+  "movie15",
+  "movie16"
 ]
 
 @asReactiveLoader
@@ -28,11 +28,10 @@ class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
   handleExpand = index => {
-    console.log(index)
     this.setState({ indexExpanded: index })
   }
   getChildToDisplay() {
-    if (this.state.indexExpanded) {
+    if (this.state.indexExpanded != null) {
       return React.createElement(MovieExpanded, {movie: movies[this.state.indexExpanded]})
     }
       return null
