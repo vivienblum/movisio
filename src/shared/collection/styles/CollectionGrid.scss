@@ -4,10 +4,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .line-display {
+    min-height: 100px;
+    width: 100%;
+    background-color: black;
+  }
+  .line-movie {
+    display: flex;
+  }
   .collection-card {
     // width: 33%;
-    height: auto;
-    float: left;
+    // height: auto;
+    // float: left;
     // TODO enlever
     width: 210px;
     height: 310px;
@@ -22,10 +31,8 @@
   }
   .collection-card.selected {
     background-color: black;
-  }
-  .line-display {
-    min-height: 100px;
-    width: 100%;
-    background-color: black;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
