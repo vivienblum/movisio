@@ -10,7 +10,7 @@ export default class CollectionGrid extends Component {
     super()
     this.renderChildren = this.renderChildren.bind(this)
   }
-
+// TODO get default props
   componentWillMount() {
     // const nbLine = Math.ceil(this.props.children.length / this.state.nbPerLine)
     // this.setState({ nbLine })
@@ -50,7 +50,7 @@ export default class CollectionGrid extends Component {
     if (this.state.indexSelected) {
       lineDisplay =
         Math.floor(this.state.indexSelected / this.state.nbPerLine) + 1
-      const el = <div key={lineDisplay} className="line-display" />
+      const el = <div key={lineDisplay} className="line-display">{this.props.childToDisplay}</div>
       matrix.splice(lineDisplay, 0, el)
     }
     return matrix.map((line, index) => {
