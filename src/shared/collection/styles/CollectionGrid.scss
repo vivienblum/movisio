@@ -8,7 +8,7 @@
   .line-display {
     min-height: 100px;
     width: 100%;
-    background-color: black;
+    background-color: $GREY900;
   }
   .line-movie {
     display: flex;
@@ -30,7 +30,7 @@
     cursor: pointer;
   }
   .collection-card.selected {
-    background-color: black;
+    background-color: $GREY900;
     border: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

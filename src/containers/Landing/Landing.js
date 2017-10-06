@@ -20,6 +20,7 @@ class Landing extends Component {
     // })
     return (
       <div className="landing-container">
+        <h1>Movisio</h1>
         <p>GET STARTED</p>
       </div>
     );

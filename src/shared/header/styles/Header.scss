@@ -1,7 +1,8 @@
 @import "src/styles/base.scss";
+@import "src/styles/variables.scss";
 
 header {
-  background-color: black;
-  min-height: 15px;
-  color: white;
+  background-color: $GREY900;
+  min-height: 20px;
+  color: $GREY300;
 }
