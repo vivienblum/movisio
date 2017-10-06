@@ -8,7 +8,7 @@
   .line-display {
     min-height: 100px;
     width: 100%;
-    background-color: black;
+    background-color: $LIME600;
   }
   .line-movie {
     display: flex;
@@ -22,15 +22,15 @@
     height: 310px;
     padding: 5px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    // border-radius: 4px;
     padding: 5px;
   }
   .collection-card:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    box-shadow: 0 0 2px 1px $LIME500;
     cursor: pointer;
   }
   .collection-card.selected {
-    background-color: black;
+    background-color: $LIME600;
     border: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
