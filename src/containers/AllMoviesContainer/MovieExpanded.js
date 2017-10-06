@@ -9,9 +9,10 @@ class MovieExpanded extends Component {
   }
 
   render() {
+    const { movie } = this.props
     return (
       <div>
-        <h1 style={{color: 'white'}}>{this.props.movie}</h1>
+        <h1 style={{ color: "white" }}>{movie.title}</h1>
       </div>
     )
   }
