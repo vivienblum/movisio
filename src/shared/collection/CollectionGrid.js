@@ -4,16 +4,11 @@ import "./styles/CollectionGrid.scss"
 
 @observer
 export default class CollectionGrid extends Component {
-  state = { nbPerLine: 3, nbLine: null, indexSelected: 2 }
+  state = { nbPerLine: 3, indexSelected: null }
 
   constructor() {
     super()
     this.renderChildren = this.renderChildren.bind(this)
-  }
-
-  componentWillMount() {
-    // const nbLine = Math.ceil(this.props.children.length / this.state.nbPerLine)
-    // this.setState({ nbLine })
   }
 
   renderLine(array) {
@@ -26,7 +21,6 @@ export default class CollectionGrid extends Component {
 
   handleExpand = e => {
     const indexSelected = e.key
-    // console.log(indexSelected)
     this.setState({ indexSelected })
   }
 
@@ -50,7 +44,7 @@ export default class CollectionGrid extends Component {
     if (this.state.indexSelected) {
       lineDisplay =
         Math.floor(this.state.indexSelected / this.state.nbPerLine) + 1
-      const el = <div key={lineDisplay} className="line-display" />
+      const el = <div key={lineDisplay} className="line-display">{this.props.childToDisplay}</div>
       matrix.splice(lineDisplay, 0, el)
     }
     return matrix.map((line, index) => {
@@ -66,33 +60,9 @@ export default class CollectionGrid extends Component {
   }
 
   render() {
-    // const { children } = this.props
-    // const { nbPerLine, nbLine } = this.state
-    // var i = 0
-    // const lines = new Array(nbLine)
     return (
       <div className="collection-grid">
-        {// React.Children.map(children, child => {
-        // //   // if(i > nbPerLine) {
-        // //   //   i = 0
-        // //   //   return <div style={{width: "100%", backgroundColor: "black", position: "relative"}}>tototototo</div>
-        // //   // }
-        // //   // i++
-        //   return React.cloneElement(child)
-        // })
-        this.renderChildren()
-        // React.Children.map(children, child => {
-        //   return React.cloneElement(child)
-        // })
-        // lines.map((line, i) => {
-        //
-        //   return React.cloneElement(child)
-        // })
-
-        // for(var i = 0; i < nbLine; i++) {
-        //
-        // }
-        }
+        {this.renderChildren()}
       </div>
     )
   }
