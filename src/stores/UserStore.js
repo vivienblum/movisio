@@ -1,8 +1,8 @@
-import { observable } from 'mobx'
-import User from './../models/User'
-import { FetchResource } from '../resources'
-import Cookie from 'js-cookie'
-import config from '../config'
+import { observable } from "mobx"
+import User from "./../models/User"
+import { FetchResource } from "../resources"
+import Cookie from "js-cookie"
+import config from "../config"
 
 class UserStore {
   @observable user = new User()
@@ -11,9 +11,10 @@ class UserStore {
     return new Promise((resolve, reject) => {
       FetchResource.post(`${config.MOVISIO_API}/users/login_token`, argData)
         .then(data => {
-          Cookie.set('mf_token', data.jwt)
+          Cookie.set("mv_token", data.jwt)
           resolve(data)
-        }).catch(err => {
+        })
+        .catch(err => {
           reject(err)
         })
     })
@@ -23,20 +24,20 @@ class UserStore {
     return new Promise((resolve, reject) => {
       FetchResource.post(`${config.MOVISIO_API}/users`, argData)
         .then(data => {
-          Cookie.set('mf_token', data.jwt)
+          Cookie.set("mv_token", data.jwt)
           resolve(data)
-      }).catch(err => {
-        reject(err)
-      })
+        })
+        .catch(err => {
+          reject(err)
+        })
     })
   }
 
-  all() {
+  initialize() {
     return new Promise(() => {
-      FetchResource.get(`${config.MOVISIO_API}/users`)
-        .then(data => {
-
-        })
+      FetchResource.get(`${config.MOVISIO_API}/users/current`).then(data => {
+        this.user = data
+      })
     })
   }
 }
