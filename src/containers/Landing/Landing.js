@@ -18,7 +18,7 @@ class Landing extends Component {
   }
 
   componentDidMount() {
-    this.props.userStore.initialize()
+    // this.props.userStore.initialize()
     // this.props.userStore.all()
   }
 
