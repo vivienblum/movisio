@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "../../stores"
 // import config from "../config"
+import styled from "styled-components"
 
 class Landing extends Component {
   handleLogin() {}
@@ -37,10 +38,10 @@ class Landing extends Component {
     //   }
     // })
     return (
-      <div className="landing-container">
-        <h1>Movisio</h1>
+      <LandingContainer>
+        <LogoImage src={require("../../images/logos/movisio-logo-black.png")} />
         <p>GET STARTED</p>
-      </div>
+      </LandingContainer>
     )
   }
 }
@@ -49,3 +50,11 @@ const mapStateToProps = state => ({
   userStore: state.userStore
 })
 export default connect(mapStateToProps)(Landing)
+
+const LandingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const LogoImage = styled.img`height: 60vh;`
