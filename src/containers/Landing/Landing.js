@@ -7,10 +7,6 @@ import Theme from "../../styles/Theme"
 import styled from "styled-components"
 
 class Landing extends Component {
-  componentDidMount() {
-    this.props.movieStore.getSearch({ search: "blade runner" })
-  }
-
   render() {
     return (
       <LandingContainer>
@@ -26,8 +22,7 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state => ({
-  userStore: state.userStore,
-  movieStore: state.movieStore
+  userStore: state.userStore
 })
 export default connect(mapStateToProps)(Landing)
 

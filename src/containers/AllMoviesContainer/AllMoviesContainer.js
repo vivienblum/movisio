@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
+import { connect } from "../../stores"
 import { CollectionGrid } from "../../shared/collection"
 import MovieCard from "./MovieCard"
 import MovieExpanded from "./MovieExpanded"
@@ -52,6 +53,10 @@ const movies = [
 class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
+  componentDidMount() {
+    // this.props.movieStore.getSearch({ search: "blade runner" })
+  }
+
   handleExpand = index => {
     this.setState({ indexExpanded: index })
   }
@@ -87,4 +92,7 @@ class AllMoviesContainer extends Component {
   }
 }
 
-export default AllMoviesContainer
+const mapStateToProps = state => ({
+  movieStore: state.movieStore
+})
+export default connect(mapStateToProps)(AllMoviesContainer)

@@ -17,10 +17,10 @@ class MovieStore {
           // setTimeout(() => {
           //   page("/movies")
           // }, 500)
-          this.movies = parse(data.results, Movie.schema)
-          console.log(this.movies)
+          this.searchMovies = parse(data.results, Movie.schema)
+          // console.log(this.movies)
 
-          resolve(this.movies)
+          resolve(this.searchMovies)
           resolve(data)
         })
         .catch(err => {
