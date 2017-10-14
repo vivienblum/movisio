@@ -32,8 +32,12 @@ class MovieCard extends Component {
           isSelected={isSelected}
         >
           <IconContainer className="IconContainer">
-            <FontIcon className="material-icons" color={`${Theme.lime600}`}>
-              face
+            <FontIcon
+              className="material-icons"
+              color={`${Theme.lime600}`}
+              hoverColor={`${Theme.limeA700}`}
+            >
+              playlist_add
             </FontIcon>
           </IconContainer>
           <Poster alt="" src={movie.poster} />

@@ -4,8 +4,8 @@ const configuration = {
     MOVISIO_API: "https://movisio-api.herokuapp.com/"
   },
   development: {
-    MOVISIO_API: "http://localhost:3001",
-    // MOVISIO_API: "https://movisio-api.herokuapp.com/",
+    // MOVISIO_API: "http://localhost:3001",
+    MOVISIO_API: "https://movisio-api.herokuapp.com/",
     DEV_MODE: true
   }
 }

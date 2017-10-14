@@ -4,6 +4,7 @@ const Theme = {
   primaryFont: "'Roboto Regular', sans-serif",
   buttonFont: " 'Proxima Nova Reg', sans-serif",
   lime600: "#C0CA33",
+  limeA700: "#AEEA00",
   lightGray: "#c9c9c9",
   mediumText: "#848281",
   errorText: "#FE000F",
