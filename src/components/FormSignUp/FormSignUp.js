@@ -4,7 +4,7 @@ import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
 
 export default class FormSignUp extends Component {
-  state = { username: "", password: "" }
+  state = { username: "", password: "", confirmPassword: "", email: "" }
 
   handleSignIn() {
     // TODO post on signup
@@ -20,9 +20,21 @@ export default class FormSignUp extends Component {
     this.setState({ password })
   }
 
+  handlePasswordConfirmationChange(e) {
+    const confirmPassword = e.target.value
+    this.setState({ confirmPassword })
+  }
+
+  handleEmailChange(e) {
+    const email = e.target.value
+    this.setState({ email })
+  }
+
   render() {
-    const { username, password } = this.state
-    const valid = username !== "" && password !== ""
+    const { username, password, confirmPassword, email } = this.state
+    const samePassword = password === confirmPassword
+    const valid =
+      username !== "" && password !== "" && email !== "" && samePassword
     return (
       <Form>
         <TitleForm>SIGN UP</TitleForm>
@@ -37,8 +49,19 @@ export default class FormSignUp extends Component {
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
-        <TextField floatingLabelText="Confirm Password" type="password" />
-        <TextField floatingLabelText="Email" type="email" />
+        <TextField
+          floatingLabelText="Confirm Password"
+          type="password"
+          errorText={!samePassword && "Passwords must be the same."}
+          onChange={this.handlePasswordConfirmationChange.bind(this)}
+          value={confirmPassword}
+        />
+        <TextField
+          floatingLabelText="Email"
+          type="email"
+          onChange={this.handleEmailChange.bind(this)}
+          value={email}
+        />
         <RaisedButton
           label="SIGN UP"
           style={{}}
