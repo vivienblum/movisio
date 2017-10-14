@@ -7,15 +7,6 @@ import Theme from "../../styles/Theme"
 import styled from "styled-components"
 
 class Landing extends Component {
-  handleLogin() {}
-
-  componentWillMount() {
-    this.props.userStore.login({
-      username: "margot",
-      password: "test"
-    })
-  }
-
   render() {
     return (
       <LandingContainer>

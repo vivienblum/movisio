@@ -2,12 +2,14 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
+import { connect } from "../../stores"
 
-export default class FormSignUp extends Component {
+class FormSignUp extends Component {
   state = { username: "", password: "", confirmPassword: "", email: "" }
 
-  handleSignIn() {
-    // TODO post on signup
+  handleSignUp() {
+    const { username, password, email } = this.state
+    this.props.userStore.signUp({ user: { username, password, email } })
   }
 
   handleUsernameChange(e) {
@@ -66,12 +68,17 @@ export default class FormSignUp extends Component {
           label="SIGN UP"
           style={{}}
           disabled={!valid}
-          onClick={this.handleSignUp}
+          onClick={this.handleSignUp.bind(this)}
         />
       </Form>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userStore: state.userStore
+})
+export default connect(mapStateToProps)(FormSignUp)
 
 const Form = styled.form`
   display: flex;

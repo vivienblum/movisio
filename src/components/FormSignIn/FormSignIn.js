@@ -2,12 +2,14 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
+import { connect } from "../../stores"
 
-export default class FormSignIn extends Component {
-  state = { username: "", password: "" }
+class FormSignIn extends Component {
+  state = { username: "", password: "", result: "" }
 
   handleSignIn() {
-    // TODO post on login_token
+    const { username, password } = this.state
+    this.props.userStore.login({ username, password })
   }
 
   handleUsernameChange(e) {
@@ -21,7 +23,7 @@ export default class FormSignIn extends Component {
   }
 
   render() {
-    const { username, password } = this.state
+    const { username, password, result } = this.state
     const valid = username !== "" && password !== ""
     return (
       <Form>
@@ -37,16 +39,22 @@ export default class FormSignIn extends Component {
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
+        <Result>{result}</Result>
         <RaisedButton
           label="LOG IN"
           style={{}}
           disabled={!valid}
-          onClick={this.handleSignUp}
+          onClick={this.handleSignIn.bind(this)}
         />
       </Form>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userStore: state.userStore
+})
+export default connect(mapStateToProps)(FormSignIn)
 
 const Form = styled.form`
   display: flex;
@@ -54,3 +62,5 @@ const Form = styled.form`
   margin: 10px;
 `
 const TitleForm = styled.h4``
+
+const Result = styled.p`color: red;`
