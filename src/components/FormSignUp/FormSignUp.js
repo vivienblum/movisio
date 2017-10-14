@@ -3,11 +3,11 @@ import styled from "styled-components"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
 
-export default class FormSignIn extends Component {
+export default class FormSignUp extends Component {
   state = { username: "", password: "" }
 
   handleSignIn() {
-    // TODO post on login_token
+    // TODO post on signup
   }
 
   handleUsernameChange(e) {
@@ -25,7 +25,7 @@ export default class FormSignIn extends Component {
     const valid = username !== "" && password !== ""
     return (
       <Form>
-        <TitleForm>LOG IN</TitleForm>
+        <TitleForm>SIGN UP</TitleForm>
         <TextField
           floatingLabelText="Username"
           onChange={this.handleUsernameChange.bind(this)}
@@ -37,8 +37,10 @@ export default class FormSignIn extends Component {
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
+        <TextField floatingLabelText="Confirm Password" type="password" />
+        <TextField floatingLabelText="Email" type="email" />
         <RaisedButton
-          label="LOG IN"
+          label="SIGN UP"
           style={{}}
           disabled={!valid}
           onClick={this.handleSignUp}

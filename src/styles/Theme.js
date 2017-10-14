@@ -5,7 +5,7 @@ const Theme = {
   buttonFont: " 'Proxima Nova Reg', sans-serif",
   lime600: "#C0CA33",
   limeA700: "#AEEA00",
-  lightGray: "#c9c9c9",
+  grey300: "#E0E0E0",
   mediumText: "#848281",
   errorText: "#FE000F",
   darkText: "#7F7F7F",
