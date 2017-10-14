@@ -1,21 +1,26 @@
+import { parse } from "mobx-models"
+import Movie from "./../models/Movie"
 import { observable } from "mobx"
-import User from "./../models/User"
 import { FetchResource } from "../resources"
-import Cookie from "js-cookie"
-// import page from "page"
 import config from "../config"
 
-class UserStore {
-  @observable user = new User()
+class MovieStore {
+  @observable searchMovies = observable.array([])
 
-  login(argData) {
+  getSearch(argData) {
+    const search = argData.search.replace(" ", "+")
     return new Promise((resolve, reject) => {
-      FetchResource.post(`${config.MOVISIO_API}/users/login_token`, argData)
+      FetchResource.getFromAPI(
+        `${config.TMDB_API}search/movie?api_key=${config.TMDB_KEY}&query=${search}`
+      )
         .then(data => {
-          Cookie.set("mv_token", data.jwt)
           // setTimeout(() => {
           //   page("/movies")
           // }, 500)
+          this.movies = parse(data.results, Movie.schema)
+          console.log(this.movies)
+
+          resolve(this.movies)
           resolve(data)
         })
         .catch(err => {
@@ -29,7 +34,6 @@ class UserStore {
     return new Promise((resolve, reject) => {
       FetchResource.post(`${config.MOVISIO_API}/users`, argData)
         .then(data => {
-          Cookie.set("mv_token", data.jwt)
           // setTimeout(() => {
           //   page("/movies")
           // }, 500)
@@ -50,5 +54,5 @@ class UserStore {
   // }
 }
 
-const userStore = new UserStore()
-export default userStore
+const movieStore = new MovieStore()
+export default movieStore

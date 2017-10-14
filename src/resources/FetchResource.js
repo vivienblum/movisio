@@ -29,6 +29,33 @@ export default class FetchResource {
     })
   }
 
+  static getFromAPI(url, body = null) {
+    return new Promise((resolve, reject) => {
+      this.getHeadersForAPI().then(headers => {
+        const urlParams = this.getURLParams(body)
+        fetch(url + urlParams, {
+          headers
+        })
+          .then(response => {
+            if (response.ok) {
+              response.json().then(data => {
+                resolve(data)
+              })
+            } else if (response.status === 403) {
+              this.handleForbidden(response)
+            } else {
+              UIStore.rollbarError(response)
+              reject(response)
+            }
+          })
+          .catch(err => {
+            UIStore.rollbarError(err)
+            reject(err)
+          })
+      })
+    })
+  }
+
   static getURLParams(body) {
     if (body && typeof body === "object") {
       let params = ""
@@ -187,6 +214,16 @@ export default class FetchResource {
     return new Promise(resolve => {
       const headers = new Headers({
         Authorization: `${Cookie.get("mv_token")}`,
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      })
+      resolve(headers)
+    })
+  }
+
+  static getHeadersForAPI() {
+    return new Promise(resolve => {
+      const headers = new Headers({
         Accept: "application/json",
         "Content-Type": "application/json"
       })

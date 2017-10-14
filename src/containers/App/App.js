@@ -5,7 +5,7 @@ import { Provider } from "mobx-react"
 import injectTapEventPlugin from "react-tap-event-plugin"
 injectTapEventPlugin()
 
-import { UserStore } from "./../../stores"
+import { UserStore, MovieStore } from "./../../stores"
 
 const muiTheme = getMuiTheme({
   fontFamily: "Proxima Nova Light, sans-serif",
@@ -16,7 +16,8 @@ const muiTheme = getMuiTheme({
 })
 
 const state = {
-  userStore: UserStore
+  userStore: UserStore,
+  movieStore: MovieStore
 }
 
 class App extends Component {
