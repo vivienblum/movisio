@@ -33,13 +33,13 @@ class UserStore {
     })
   }
 
-  initialize() {
-    return new Promise(() => {
-      FetchResource.get(`${config.MOVISIO_API}/users/current`).then(data => {
-        this.user = data
-      })
-    })
-  }
+  // initialize() {
+  //   return new Promise(() => {
+  //     FetchResource.get(`${config.MOVISIO_API}/users/current`).then(data => {
+  //       this.user = data
+  //     })
+  //   })
+  // }
 }
 
 const userStore = new UserStore()
