@@ -3,6 +3,7 @@ import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import { CollectionGrid } from "../../shared/collection"
 import MovieCard from "./MovieCard"
 import MovieExpanded from "./MovieExpanded"
+import { SearchMovie } from "../../components/SearchMovie"
 
 const movies = [
   {
@@ -68,6 +69,7 @@ class AllMoviesContainer extends Component {
     return (
       <div>
         <h1>AllMoviesContainer</h1>
+        <SearchMovie />
         <CollectionGrid childToDisplay={this.getChildToDisplay()}>
           {movies.map((movie, i) => {
             return (
