@@ -24,6 +24,7 @@ export default class FormSignIn extends Component {
 
   render() {
     const { username, password } = this.state
+    const valid = username !== "" && password !== ""
     return (
       <Form>
         <TextField
@@ -37,7 +38,12 @@ export default class FormSignIn extends Component {
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
-        <RaisedButton label="Default" style={{}} onClick={this.handleSignUp} />
+        <RaisedButton
+          label="LOG IN"
+          style={{}}
+          disabled={!valid}
+          onClick={this.handleSignUp}
+        />
       </Form>
     )
   }
