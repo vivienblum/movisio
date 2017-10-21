@@ -22,7 +22,6 @@ const state = {
 
 class App extends Component {
   componentDidMount() {
-    // console.log(window.location.pathname);
     if (window.location.pathname !== "/") {
       UserStore.user.load()
     }
