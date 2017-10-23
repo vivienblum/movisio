@@ -1,8 +1,30 @@
 /* global Rollbar */
+import { observable } from "mobx"
 
 class UIStore {
+  @observable flash = {}
+  @observable showFlash = false
+
+  closeFlash(e) {
+    if (e) e.preventDefault()
+    this.flash = {}
+    this.showFlash = false
+  }
+
+  openFlash(message, type = "error", autoClose = false) {
+    // Types can be error (red), default (transparent), or success (green)
+    this.flash = { message, type }
+    this.showFlash = true
+    if (autoClose) {
+      setTimeout(() => {
+        this.flash = {}
+        this.showFlash = false
+      }, 5000)
+    }
+  }
+
   fixBrokenImage(e) {
-    // e.target.src = require('../images/logos/logo-on-black.png')
+    // e.target.src = require("../images/logos/logo-on-black.png")
   }
 
   rollbarError(err) {
@@ -22,12 +44,15 @@ class UIStore {
 
   disableBodyScroll() {
     this.bodyScroll = false
-    document.getElementsByTagName('html')[0].className += 'no-scroll'
+    document.getElementsByTagName("html")[0].className += "no-scroll"
   }
 
   enableBodyScroll() {
-    const string = document.getElementsByTagName('html')[0].className
-    document.getElementsByTagName('html')[0].className = string.replace('no-scroll', '')
+    const string = document.getElementsByTagName("html")[0].className
+    document.getElementsByTagName("html")[0].className = string.replace(
+      "no-scroll",
+      ""
+    )
   }
 
   capitalize(name) {
@@ -54,19 +79,19 @@ class UIStore {
   }
 
   formatTag(str) {
-    if (str.indexOf('#') === -1) {
-      return '#'.concat(str)
+    if (str.indexOf("#") === -1) {
+      return "#".concat(str)
     }
     return str
   }
 
   formatReach(reach) {
     if (reach > 1000000) {
-      return (`${(reach / 1000000).toFixed(2)}M`)
+      return `${(reach / 1000000).toFixed(2)}M`
     } else if (reach > 1000) {
-      return (`${(reach / 1000).toFixed(0)}K`)
+      return `${(reach / 1000).toFixed(0)}K`
     } else if (reach === null || reach === undefined) {
-      return '0'
+      return "0"
     }
     return reach.toString()
   }
@@ -76,11 +101,11 @@ class UIStore {
   }
 
   sanitizeInput(string) {
-    return string.replace(/[^a-z0-9áéíóúñü /:?'\n.,_-]/gim, '')
+    return string.replace(/[^a-z0-9áéíóúñü /:?'\n.,_-]/gim, "")
   }
 
   pluralizeOrNot(number, string) {
-    if (number === 1 || number === '1') {
+    if (number === 1 || number === "1" || number === 0 || number === "0") {
       return string
     }
     return `${string}s`

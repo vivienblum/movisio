@@ -1,8 +1,10 @@
 import { observable } from "mobx"
+// import { UIStore } from "../stores"
+import Cookie from "js-cookie"
 import User from "./../models/User"
 import { FetchResource } from "../resources"
-import Cookie from "js-cookie"
-// import page from "page"
+
+import page from "page"
 import config from "../config"
 
 class UserStore {
@@ -13,12 +15,13 @@ class UserStore {
       FetchResource.post(`${config.MOVISIO_API}/users/login_token`, argData)
         .then(data => {
           Cookie.set("mv_token", data.jwt)
-          // setTimeout(() => {
-          //   page("/movies")
-          // }, 500)
+          setTimeout(() => {
+            page("/movies")
+          }, 500)
           resolve(data)
         })
         .catch(err => {
+          // UIStore.openFlash("Partnership was deleted!", "success", false)
           reject(err)
         })
     })

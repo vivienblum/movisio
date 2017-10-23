@@ -14,11 +14,11 @@ function loggedIn() {
 
 function requireAuth(nextState, replace) {
   if (!loggedIn()) {
-    replace(
-      {
-        // pathname: "/"
-      }
-    )
+    // replace(
+    //   {
+    //     pathname: "/"
+    //   }
+    // )
   }
 }
 
