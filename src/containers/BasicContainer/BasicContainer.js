@@ -1,11 +1,13 @@
 import React, { Component } from "react"
+import { observer } from "mobx-react"
+// import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import { connect } from "../../stores"
 import { HeaderMovisio } from "../../components/HeaderMovisio"
 import { FooterMovisio } from "../../components/FooterMovisio"
 
+@observer
 class BasicContainer extends Component {
   componentWillMount() {
-    // this.props.userStore.initializeUser()
     // console.log(this.props.user.id)
     // if (this.props.user.id === null) {
     //   window.location.pathname = "/"
@@ -31,8 +33,4 @@ const mapStateToProps = ({ userStore }) => {
   }
 }
 
-// const mapStateToProps = state => ({
-//   // userStore: state.userStore,
-//   user: state.userStore.user
-// })
 export default connect(mapStateToProps)(BasicContainer)

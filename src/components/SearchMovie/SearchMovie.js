@@ -24,6 +24,11 @@ class SearchMovie extends Component {
     // this.setState({ search, dataSource })
   }
 
+  handleAddMovie(movie) {
+    movie.create()
+    // console.log(movie)
+  }
+
   render() {
     const { search, movies } = this.state
     return (
@@ -44,7 +49,10 @@ class SearchMovie extends Component {
         <List>
           {movies.map((movie, i) => {
             return (
-              <MoviePreview key={i}>
+              <MoviePreview
+                key={i}
+                onClick={this.handleAddMovie.bind(this, movie)}
+              >
                 <Poster src={movie.poster} />
                 <h3>{movie.title}</h3>
               </MoviePreview>
@@ -68,7 +76,10 @@ const SearchContainter = styled.form`
 `
 
 const List = styled.div``
-const MoviePreview = styled.div`display: flex;`
+const MoviePreview = styled.div`
+  display: flex;
+  cursor: pointer;
+`
 const Poster = styled.img`
   width: 50px;
   height: 70px;

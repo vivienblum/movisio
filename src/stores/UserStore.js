@@ -26,7 +26,6 @@ class UserStore {
   }
 
   signUp(argData) {
-    console.log(argData)
     return new Promise((resolve, reject) => {
       FetchResource.post(`${config.MOVISIO_API}/users`, argData)
         .then(data => {

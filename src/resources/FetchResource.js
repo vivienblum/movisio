@@ -240,17 +240,18 @@ export default class FetchResource {
     })
   }
 
+  /** @deprecated */
   static handleForbidden(response) {
-    try {
-      if (
-        response.status === 403 &&
-        window.location.pathname !== "/login" &&
-        window.location.pathname !== "/signup"
-      ) {
-        window.location.href = "/login"
-      }
-    } catch (err) {
-      return
-    }
+    // try {
+    //   if (
+    //     response.status === 403 &&
+    //     window.location.pathname !== "/login" &&
+    //     window.location.pathname !== "/signup"
+    //   ) {
+    //     window.location.href = "/login"
+    //   }
+    // } catch (err) {
+    //   return
+    // }
   }
 }

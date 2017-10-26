@@ -71,12 +71,13 @@ class AllMoviesContainer extends Component {
 
   render() {
     const { indexExpanded } = this.state
+    const { allMovies } = this.props.user
     return (
       <div>
         <h1>AllMoviesContainer</h1>
         <SearchMovie />
         <CollectionGrid childToDisplay={this.getChildToDisplay()}>
-          {movies.map((movie, i) => {
+          {allMovies.map((movie, i) => {
             return (
               <MovieCard
                 movie={movie}
@@ -91,8 +92,10 @@ class AllMoviesContainer extends Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  movieStore: state.movieStore
-})
+const mapStateToProps = ({ userStore, movieStore }) => {
+  return {
+    user: userStore.user,
+    movieStore: movieStore
+  }
+}
 export default connect(mapStateToProps)(AllMoviesContainer)

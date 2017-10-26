@@ -5,11 +5,14 @@ import RaisedButton from "material-ui/RaisedButton"
 import { connect } from "../../stores"
 
 class FormSignIn extends Component {
-  state = { username: "", password: "", result: "" }
+  state = { username: "", password: "", errorText: "" }
 
   handleSignIn() {
     const { username, password } = this.state
-    this.props.userStore.login({ username, password })
+    return this.props.userStore.login({ username, password }).catch(err => {
+      // console.log(err.json)
+      this.setState({ errorText: "No user found or wrong username" })
+    })
   }
 
   handleUsernameChange(e) {
@@ -23,7 +26,7 @@ class FormSignIn extends Component {
   }
 
   render() {
-    const { username, password, result } = this.state
+    const { username, password, errorText } = this.state
     const valid = username !== "" && password !== ""
     return (
       <Form>
@@ -39,7 +42,7 @@ class FormSignIn extends Component {
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
-        <Result>{result}</Result>
+        <ErrorText>{errorText}</ErrorText>
         <RaisedButton
           label="LOG IN"
           style={{}}
@@ -63,4 +66,4 @@ const Form = styled.form`
 `
 const TitleForm = styled.h4``
 
-const Result = styled.p`color: red;`
+const ErrorText = styled.p`color: red;`

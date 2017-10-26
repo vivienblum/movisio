@@ -5,11 +5,25 @@ import RaisedButton from "material-ui/RaisedButton"
 import { connect } from "../../stores"
 
 class FormSignUp extends Component {
-  state = { username: "", password: "", confirmPassword: "", email: "" }
+  state = {
+    username: "vivien",
+    password: "password",
+    confirmPassword: "password",
+    email: "toto",
+    errorText: ""
+  }
 
   handleSignUp() {
     const { username, password, email } = this.state
-    this.props.userStore.signUp({ user: { username, password, email } })
+    return this.props.userStore
+      .signUp({ user: { username, password, email } })
+      .then(() => {
+        console.log("tututu")
+      })
+      .catch(err => {
+        console.log(err)
+        // this.setState({errorText})
+      })
   }
 
   handleUsernameChange(e) {
