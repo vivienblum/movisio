@@ -1,6 +1,7 @@
 import { parse } from "mobx-models"
-import Movie from "./../models/Movie"
 import { observable } from "mobx"
+// import Movie from "./../models/Movie"
+import MovieAPI from "./../models/MovieAPI"
 import { FetchResource } from "../resources"
 import config from "../config"
 
@@ -14,12 +15,7 @@ class MovieStore {
         `${config.TMDB_API}search/movie?api_key=${config.TMDB_KEY}&query=${search}`
       )
         .then(data => {
-          // setTimeout(() => {
-          //   page("/movies")
-          // }, 500)
-          this.searchMovies = parse(data.results, Movie.schema)
-          // console.log(this.movies)
-
+          this.searchMovies = parse(data.results, MovieAPI.schema)
           resolve(this.searchMovies)
           resolve(data)
         })
@@ -28,30 +24,6 @@ class MovieStore {
         })
     })
   }
-
-  signUp(argData) {
-    console.log(argData)
-    return new Promise((resolve, reject) => {
-      FetchResource.post(`${config.MOVISIO_API}/users`, argData)
-        .then(data => {
-          // setTimeout(() => {
-          //   page("/movies")
-          // }, 500)
-          resolve(data)
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  }
-
-  // initialize() {
-  //   return new Promise(() => {
-  //     FetchResource.get(`${config.MOVISIO_API}/users/current`).then(data => {
-  //       this.user = data
-  //     })
-  //   })
-  // }
 }
 
 const movieStore = new MovieStore()

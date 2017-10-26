@@ -1,5 +1,4 @@
 import { observable } from "mobx"
-// import { UIStore } from "../stores"
 import Cookie from "js-cookie"
 import User from "./../models/User"
 import { FetchResource } from "../resources"
@@ -21,7 +20,6 @@ class UserStore {
           resolve(data)
         })
         .catch(err => {
-          // UIStore.openFlash("Partnership was deleted!", "success", false)
           reject(err)
         })
     })

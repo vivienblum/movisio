@@ -13,7 +13,7 @@ class SearchMovie extends Component {
 
   handleSearch() {
     const { search /*, movies*/ } = this.state
-    console.log(search)
+    // console.log(search)
     return this.props.movieStore.getSearch({ search }).then(() => {
       const movies = this.props.movieStore.searchMovies
       this.setState({ movies })
@@ -45,7 +45,7 @@ class SearchMovie extends Component {
           {movies.map((movie, i) => {
             return (
               <MoviePreview key={i}>
-                <Poster src={movie.posterFromApi} />
+                <Poster src={movie.poster} />
                 <h3>{movie.title}</h3>
               </MoviePreview>
             )

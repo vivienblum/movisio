@@ -1,10 +1,9 @@
 import React, { Component } from "react"
+import styled from "styled-components"
 import { connect } from "../../stores"
 import { FormSignIn } from "../../components/FormSignIn"
 import { FormSignUp } from "../../components/FormSignUp"
 import Theme from "../../styles/Theme"
-// import config from "../config"
-import styled from "styled-components"
 
 class Landing extends Component {
   render() {

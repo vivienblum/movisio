@@ -6,7 +6,7 @@ import { FooterMovisio } from "../../components/FooterMovisio"
 class BasicContainer extends Component {
   componentDidMount() {
     // this.props.userStore.initializeUser()
-    console.log(this.props.user.movies)
+    // console.log(this.props.user.movies)
   }
 
   // TODO make a styled components
