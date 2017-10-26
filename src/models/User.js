@@ -7,6 +7,7 @@ import config from "../config"
 import Movie from "./Movie"
 
 class User extends Model {
+  id = null
   @observable username = ""
   @observable name = ""
   @observable email = ""

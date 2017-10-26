@@ -4,9 +4,12 @@ import { HeaderMovisio } from "../../components/HeaderMovisio"
 import { FooterMovisio } from "../../components/FooterMovisio"
 
 class BasicContainer extends Component {
-  componentDidMount() {
+  componentWillMount() {
     // this.props.userStore.initializeUser()
-    // console.log(this.props.user.movies)
+    // console.log(this.props.user.id)
+    // if (this.props.user.id === null) {
+    //   window.location.pathname = "/"
+    // }
   }
 
   // TODO make a styled components
@@ -22,8 +25,14 @@ class BasicContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  // userStore: state.userStore,
-  user: state.userStore.user
-})
+const mapStateToProps = ({ userStore }) => {
+  return {
+    user: userStore.user
+  }
+}
+
+// const mapStateToProps = state => ({
+//   // userStore: state.userStore,
+//   user: state.userStore.user
+// })
 export default connect(mapStateToProps)(BasicContainer)

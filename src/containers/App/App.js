@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
-import { Provider } from "mobx-react"
+import { Provider, observer } from "mobx-react"
 import injectTapEventPlugin from "react-tap-event-plugin"
 injectTapEventPlugin()
 
@@ -20,10 +20,13 @@ const state = {
   movieStore: MovieStore
 }
 
+@observer
 class App extends Component {
-  componentDidMount() {
+  componentWillMount() {
     if (window.location.pathname !== "/") {
-      UserStore.user.load()
+      return UserStore.user.load().catch(err => {
+        window.location.pathname = "/"
+      })
     }
   }
 
