@@ -12,7 +12,7 @@ class SearchMovie extends Component {
   }
 
   handleSearch() {
-    const { search, movies } = this.state
+    const { search /*, movies*/ } = this.state
     console.log(search)
     return this.props.movieStore.getSearch({ search }).then(() => {
       const movies = this.props.movieStore.searchMovies

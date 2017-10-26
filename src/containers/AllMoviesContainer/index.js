@@ -1,1 +1,1 @@
-export { default as AllMoviesContainer } from './AllMoviesContainer'
+export { default as AllMoviesContainer } from "./AllMoviesContainer"
