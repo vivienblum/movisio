@@ -2,9 +2,9 @@
 @import "src/styles/variables.scss";
 
 header {
-  background-color: $GREY900;
+  background-color: $BLACK_GREY;
   min-height: 20px;
-  color: $GREY300;
+  color: $LIGHT_GREY;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,7 +16,7 @@ header {
     padding-right: 2vw;
   }
   .header-item:hover {
-    background-color: $GREY800;
+    background-color: $DARK_GREY;
     cursor: pointer;
   }
 }

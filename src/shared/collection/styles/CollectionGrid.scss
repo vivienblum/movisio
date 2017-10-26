@@ -8,7 +8,7 @@
   .line-display {
     min-height: 100px;
     width: 100%;
-    background-color: $LIME600;
+    background-color: $MEDIUM_GREEN;
   }
   .line-movie {
     display: flex;
@@ -26,11 +26,11 @@
     padding: 5px;
   }
   .collection-card:hover {
-    box-shadow: 0 0 2px 1px $LIME500;
+    box-shadow: 0 0 2px 1px $LIGHT_GREEN;
     cursor: pointer;
   }
   .collection-card.selected {
-    background-color: $LIME600;
+    background-color: $MEDIUM_GREEN;
     border: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

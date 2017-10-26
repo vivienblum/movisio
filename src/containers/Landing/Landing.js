@@ -44,7 +44,7 @@ const SignContainer = styled.div`
 `
 
 const Separator = styled.div`
-  background-color: ${Theme.grey300};
+  background-color: ${Theme.lightGrey};
   width: 2px;
   border-radius: 5px;
 `
