@@ -6,6 +6,9 @@ class MovieAPI extends Movie {
   constructor(attributes) {
     super(attributes)
     this.poster = `${config.POSTER_PATH}${attributes.poster_path}`
+    this.runtime = attributes.runtime
+    this.rate = attributes.vote_average
+    this.year = attributes.overview
   }
 }
 MovieAPI.schema = new Schema(MovieAPI)

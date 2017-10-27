@@ -32,6 +32,7 @@ class User extends Model {
     })
   }
 
+  /** @deprecated */
   getAllMovies() {
     return new Promise((resolve, reject) => {
       FetchResource.get(`${config.MOVISIO_API}/movies`)

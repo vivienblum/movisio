@@ -26,7 +26,6 @@ class SearchMovie extends Component {
 
   handleAddMovie(movie) {
     movie.create()
-    // console.log(movie)
   }
 
   render() {

@@ -54,16 +54,17 @@ class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
   componentDidMount() {
-    // this.props.movieStore.getSearch({ search: "blade runner" })
+    this.props.movieStore.getAllMovies()
   }
 
   handleExpand = index => {
     this.setState({ indexExpanded: index })
   }
+
   getChildToDisplay() {
     if (this.state.indexExpanded != null) {
       return React.createElement(MovieExpanded, {
-        movie: movies[this.state.indexExpanded]
+        movie: this.props.user.allMovies[this.state.indexExpanded]
       })
     }
     return null
@@ -71,7 +72,7 @@ class AllMoviesContainer extends Component {
 
   render() {
     const { indexExpanded } = this.state
-    const { allMovies } = this.props.user
+    const { allMovies } = this.props.movieStore
     return (
       <div>
         <h1>AllMoviesContainer</h1>

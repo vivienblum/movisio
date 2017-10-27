@@ -1,5 +1,6 @@
 import { Model, Schema } from "mobx-models"
 import { FetchResource } from "../resources"
+import { MovieStore } from "../stores"
 import config from "../config"
 
 class Movie extends Model {
@@ -23,12 +24,11 @@ class Movie extends Model {
 
   create() {
     return new Promise((resolve, reject) => {
-      console.log(this.getCorrectFormat())
       FetchResource.post(`${config.MOVISIO_API}/movies`, {
         movie: this.getCorrectFormat()
       })
         .then(data => {
-          // console.log(data)
+          MovieStore.addMovie(data.movie)
         })
         .catch(err => {
           reject(err)
