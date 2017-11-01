@@ -75,7 +75,6 @@ class User extends Model {
           const movieSchema = new Schema(Movie)
           const parsed = movieSchema.parseRaw(data.movies)
           Object.assign(this.movies, parsed)
-          console.log(this.movies)
           resolve(this.movies)
         })
         .catch(err => {

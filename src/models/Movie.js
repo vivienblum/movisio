@@ -1,7 +1,7 @@
 import { Model, Schema } from "mobx-models"
 import { FetchResource } from "../resources"
-import { MovieStore } from "../stores"
-import { User } from "../stores"
+// import { MovieStore } from "../stores"
+// import { User } from "../stores"
 import config from "../config"
 
 class Movie extends Model {
