@@ -37,7 +37,14 @@ class MovieOwnedCard extends Component {
               color={`${Theme.mediumGreen}`}
               hoverColor={`${Theme.fluoGreen}`}
             >
-              playlist_add
+              remove_red_eye
+            </FontIcon>
+            <FontIcon
+              className="material-icons"
+              color={`${Theme.mediumGreen}`}
+              hoverColor={`${Theme.fluoGreen}`}
+            >
+              favorite
             </FontIcon>
           </IconContainer>
           <Poster alt="" src={movie.poster} />
@@ -60,13 +67,12 @@ const Poster = styled.img`
 
 const IconContainer = styled.div`
   position: absolute;
-  // top: 0;
-  // left: 0;
   padding: 4px;
+  padding-right: 12px;
   z-index: 3;
   flex-direction: row;
   justify-content: space-between;
-  color: red;
+  width: inherit;
 `
 
 // const IconPlatform = styled.i``

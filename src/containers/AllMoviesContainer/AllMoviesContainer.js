@@ -12,10 +12,6 @@ import { SearchMovie } from "../../components/SearchMovie"
 class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
-  componentDidMount() {
-    // this.props.movieStore.getAllMovies()
-  }
-
   handleExpand = index => {
     this.setState({ indexExpanded: index })
   }
