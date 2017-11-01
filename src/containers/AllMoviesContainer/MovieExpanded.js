@@ -31,6 +31,7 @@ class MovieExpanded extends Component {
 
 const MovieExpandedContainer = styled.div`
   display: flex;
+  justify-content: center;
   padding: 10px;
   color: white;
 `
@@ -38,7 +39,10 @@ const Poster = styled.img`
   width: 200px;
   height: 300px;
 `
-const Details = styled.div`padding: 10px;`
+const Details = styled.div`
+  padding: 10px;
+  max-width: 50%;
+`
 const Action = styled.div``
 const Title = styled.h2``
 const Info = styled.div`

@@ -12,8 +12,8 @@ class User extends Model {
   @observable name = ""
   @observable email = ""
   @observable password = ""
-  @observable movies = []
-  @observable allMovies = observable.array([])
+  @observable movies = observable.array([])
+  // @observable allMovies = observable.array([])
 
   retrieve() {
     return new Promise((resolve, reject) => {
@@ -22,8 +22,9 @@ class User extends Model {
           const userSchema = new Schema(User)
           const parsed = userSchema.parseRaw(data)
           Object.assign(this, parsed)
-          this.getMyMovies()
-          this.getAllMovies()
+          this.getMovies()
+          // this.getMyMovies()
+          // this.getAllMovies()
           resolve(this)
         })
         .catch(err => {
@@ -48,6 +49,7 @@ class User extends Model {
     })
   }
 
+  /** @deprecated */
   getMyMovies() {
     return new Promise((resolve, reject) => {
       FetchResource.get(`${config.MOVISIO_API}/users/${this.id}/movies`)
@@ -64,6 +66,26 @@ class User extends Model {
           reject(err)
         })
     })
+  }
+
+  getMovies() {
+    return new Promise((resolve, reject) => {
+      FetchResource.get(`${config.MOVISIO_API}/users/movies/all`)
+        .then(data => {
+          const movieSchema = new Schema(Movie)
+          const parsed = movieSchema.parseRaw(data.movies)
+          Object.assign(this.movies, parsed)
+          console.log(this.movies)
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
+  addMovie(movie) {
+    this.movies.push(movie)
   }
 
   logout() {

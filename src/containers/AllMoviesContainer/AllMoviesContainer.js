@@ -11,7 +11,7 @@ class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
   componentDidMount() {
-    this.props.movieStore.getAllMovies()
+    // this.props.movieStore.getAllMovies()
   }
 
   handleExpand = index => {
@@ -21,7 +21,7 @@ class AllMoviesContainer extends Component {
   getChildToDisplay() {
     if (this.state.indexExpanded != null) {
       return React.createElement(MovieExpanded, {
-        movie: this.props.movieStore.allMovies[this.state.indexExpanded]
+        movie: this.props.user.movies[this.state.indexExpanded]
       })
     }
     return null
@@ -29,13 +29,13 @@ class AllMoviesContainer extends Component {
 
   render() {
     const { indexExpanded } = this.state
-    const { allMovies } = this.props.movieStore
+    const { user } = this.props
     return (
       <div>
         <h1>AllMoviesContainer</h1>
         <SearchMovie />
         <CollectionGrid childToDisplay={this.getChildToDisplay()}>
-          {allMovies.map((movie, i) => {
+          {user.movies.map((movie, i) => {
             return (
               <MovieCard
                 movie={movie}
