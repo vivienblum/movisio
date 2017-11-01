@@ -10,6 +10,7 @@ class MovieExpanded extends Component {
 
   render() {
     const { movie } = this.props
+    console.log(movie)
     return (
       <div>
         <h1 style={{ color: "white" }}>{movie.title}</h1>

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { func } from "prop-types"
-import AutoComplete from "material-ui/AutoComplete"
+import TextField from "material-ui/TextField"
 import FlatButton from "material-ui/FlatButton"
 // import { observer } from "mobx-react"
 import "./styles/Search.scss"
@@ -13,7 +13,8 @@ export default class Search extends Component {
     onSearch: func.isRequired
   }
 
-  handleUpdateInput(search) {
+  handleUpdateInput(e) {
+    const search = e.target.value
     this.setState({ search })
   }
 
@@ -23,10 +24,9 @@ export default class Search extends Component {
     return (
       <div className="search-container">
         <div className="field">
-          <AutoComplete
+          <TextField
             hintText="Movie"
-            dataSource={[]}
-            onUpdateInput={this.handleUpdateInput.bind(this)}
+            onChange={this.handleUpdateInput.bind(this)}
             value={search}
           />
           <FlatButton
