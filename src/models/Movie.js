@@ -29,6 +29,7 @@ class Movie extends Model {
       })
         .then(data => {
           MovieStore.addMovie(data.movie)
+          resolve(this)
         })
         .catch(err => {
           reject(err)
