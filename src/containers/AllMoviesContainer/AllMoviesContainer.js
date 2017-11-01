@@ -4,6 +4,7 @@ import { connect } from "../../stores"
 import { CollectionGrid } from "../../shared/collection"
 // import MovieCard from "./MovieCard"
 import { MovieCard } from "../../components/MovieCard"
+import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { SearchMovie } from "../../components/SearchMovie"
 
@@ -37,7 +38,14 @@ class AllMoviesContainer extends Component {
         <SearchMovie />
         <CollectionGrid childToDisplay={this.getChildToDisplay()}>
           {user.movies.map((movie, i) => {
-            return (
+            return movie.owned ? (
+              <MovieOwnedCard
+                movie={movie}
+                key={i}
+                onMovieChange={this.handleExpand.bind(this, i)}
+                isSelected={i === indexExpanded}
+              />
+            ) : (
               <MovieCard
                 movie={movie}
                 key={i}
