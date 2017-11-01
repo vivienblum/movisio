@@ -29,8 +29,8 @@ class Movie extends Model {
         movie: this.getCorrectFormat()
       })
         .then(data => {
-          MovieStore.addMovie(data.movie)
-          User.addMovie(data.movie)
+          // MovieStore.addMovie(data.movie)
+          // User.addMovie(data.movie)
           resolve(this)
         })
         .catch(err => {

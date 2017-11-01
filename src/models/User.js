@@ -84,7 +84,7 @@ class User extends Model {
     })
   }
 
-  addMovie(movie) {
+  addMovieToAll(movie) {
     this.movies.push(movie)
   }
 

@@ -14,9 +14,14 @@ class SearchMovie extends Component {
   }
 
   handleAddMovie(movie) {
-    return movie.create().then(() => {
-      this.setState({ movies: [] })
-    })
+    return movie
+      .create()
+      .then(() => {
+        this.props.user.addMovieToAll(movie)
+      })
+      .then(() => {
+        this.setState({ movies: [] })
+      })
   }
 
   render() {
@@ -42,15 +47,10 @@ class SearchMovie extends Component {
 }
 
 const mapStateToProps = state => ({
-  movieStore: state.movieStore
+  movieStore: state.movieStore,
+  user: state.userStore.user
 })
 export default connect(mapStateToProps)(SearchMovie)
-
-// const SearchContainter = styled.form`
-//   display: flex;
-//   flex-direction: column;
-//   margin: 10px;
-// `
 
 const List = styled.div``
 const MoviePreview = styled.div`
