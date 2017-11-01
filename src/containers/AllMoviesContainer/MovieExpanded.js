@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
+import styled from "styled-components"
 // import { func } from "prop-types"
 
 @asReactiveLoader
@@ -10,13 +11,46 @@ class MovieExpanded extends Component {
 
   render() {
     const { movie } = this.props
-    console.log(movie)
     return (
-      <div>
-        <h1 style={{ color: "white" }}>{movie.title}</h1>
-      </div>
+      <MovieExpandedContainer>
+        <Poster src={movie.poster} />
+        <Details>
+          <Action>Action list</Action>
+          <Title>{movie.title}</Title>
+          <Info>
+            <Rate>{movie.rate}</Rate>
+            <Year>{movie.year}</Year>
+            <Runtime>{movie.runtime}</Runtime>
+          </Info>
+          <Plot>{movie.plot}</Plot>
+        </Details>
+      </MovieExpandedContainer>
     )
   }
 }
+
+const MovieExpandedContainer = styled.div`
+  display: flex;
+  padding: 10px;
+  color: white;
+`
+const Poster = styled.img`
+  width: 200px;
+  height: 300px;
+`
+const Details = styled.div`padding: 10px;`
+const Action = styled.div``
+const Title = styled.h2``
+const Info = styled.div`
+  display: flex;
+  align-items: flex-start;
+  max-width: 60%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`
+const Rate = styled.span``
+const Year = styled.span``
+const Runtime = styled.span`display: none;`
+const Plot = styled.p``
 
 export default MovieExpanded

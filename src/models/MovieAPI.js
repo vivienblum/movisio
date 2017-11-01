@@ -6,9 +6,10 @@ class MovieAPI extends Movie {
   constructor(attributes) {
     super(attributes)
     this.poster = `${config.POSTER_PATH}${attributes.poster_path}`
-    this.runtime = attributes.runtime
+    // TODO this.runtime = attributes.runtime
     this.rate = attributes.vote_average
-    this.year = attributes.overview
+    this.plot = attributes.overview
+    this.year = parseInt(attributes.release_date, 10)
   }
 }
 MovieAPI.schema = new Schema(MovieAPI)
