@@ -9,26 +9,42 @@ class FormSignUp extends Component {
     username: "vivien",
     password: "password",
     confirmPassword: "password",
-    email: "toto",
-    errorText: ""
+    email: "vivien@test.com",
+    errorUsername: "",
+    errorEmail: "dkd"
   }
 
   handleSignUp() {
     const { username, password, email } = this.state
     return this.props.userStore
       .signUp({ user: { username, password, email } })
-      .then(() => {
-        console.log("tututu")
-      })
       .catch(err => {
-        console.log(err)
-        // this.setState({errorText})
+        switch (err.status) {
+          case 420:
+            this.setState({
+              errorUsername: "Username already taken.",
+              errorEmail: "Email already taken."
+            })
+            break
+          case 421:
+            this.setState({
+              errorEmail: "Email already taken."
+            })
+            break
+          case 422:
+            this.setState({
+              errorUsername: "Username already taken."
+            })
+            break
+          default:
+            break
+        }
       })
   }
 
   handleUsernameChange(e) {
     const username = e.target.value
-    this.setState({ username })
+    this.setState({ username, errorUsername: "" })
   }
 
   handlePasswordChange(e) {
@@ -43,11 +59,18 @@ class FormSignUp extends Component {
 
   handleEmailChange(e) {
     const email = e.target.value
-    this.setState({ email })
+    this.setState({ email, errorEmail: "" })
   }
 
   render() {
-    const { username, password, confirmPassword, email } = this.state
+    const {
+      username,
+      password,
+      confirmPassword,
+      email,
+      errorUsername,
+      errorEmail
+    } = this.state
     const samePassword = password === confirmPassword
     const valid =
       username !== "" && password !== "" && email !== "" && samePassword
@@ -56,6 +79,7 @@ class FormSignUp extends Component {
         <TitleForm>SIGN UP</TitleForm>
         <TextField
           floatingLabelText="Username"
+          errorText={errorUsername}
           onChange={this.handleUsernameChange.bind(this)}
           value={username}
         />
@@ -75,12 +99,13 @@ class FormSignUp extends Component {
         <TextField
           floatingLabelText="Email"
           type="email"
+          errorText={errorEmail}
           onChange={this.handleEmailChange.bind(this)}
           value={email}
         />
         <RaisedButton
           label="SIGN UP"
-          style={{}}
+          style={{ marginTop: "15px" }}
           disabled={!valid}
           onClick={this.handleSignUp.bind(this)}
         />

@@ -5,7 +5,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import { connect } from "../../stores"
 
 class FormSignIn extends Component {
-  state = { username: "topito", password: "password", errorText: "" }
+  state = { username: "", password: "", errorText: "" }
 
   handleSignIn() {
     const { username, password } = this.state
@@ -46,7 +46,7 @@ class FormSignIn extends Component {
         <ErrorText>{errorText}</ErrorText>
         <RaisedButton
           label="LOG IN"
-          style={{}}
+          style={{ marginTop: "15px" }}
           disabled={!valid}
           onClick={this.handleSignIn.bind(this)}
         />
