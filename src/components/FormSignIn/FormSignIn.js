@@ -5,45 +5,54 @@ import RaisedButton from "material-ui/RaisedButton"
 import { connect } from "../../stores"
 
 class FormSignIn extends Component {
-  state = { username: "", password: "", errorText: "" }
+  state = {
+    username: "",
+    password: "",
+    errorUsername: "",
+    errorPassword: ""
+  }
 
   handleSignIn() {
     const { username, password } = this.state
     return this.props.userStore.login({ username, password }).catch(err => {
-      if (err.status) {
-        this.setState({ errorText: "No user found or wrong username" })
+      if (err.status === 401) {
+        this.setState({
+          errorUsername: "No user found or wrong username",
+          errorPassword: "No user found or wrong username"
+        })
       }
     })
   }
 
   handleUsernameChange(e) {
     const username = e.target.value
-    this.setState({ username })
+    this.setState({ username, errorUsername: "" })
   }
 
   handlePasswordChange(e) {
     const password = e.target.value
-    this.setState({ password })
+    this.setState({ password, errorPassword: "" })
   }
 
   render() {
-    const { username, password, errorText } = this.state
-    const valid = username !== "" && password !== ""
+    const { username, password, errorUsername, errorPassword } = this.state
+    const valid = username !== "" && password.length >= 8
     return (
       <Form>
         <TitleForm>LOG IN</TitleForm>
         <TextField
           floatingLabelText="Username"
+          errorText={errorUsername}
           onChange={this.handleUsernameChange.bind(this)}
           value={username}
         />
         <TextField
           floatingLabelText="Password"
           type="password"
+          errorText={errorPassword}
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
-        <ErrorText>{errorText}</ErrorText>
         <RaisedButton
           label="LOG IN"
           style={{ marginTop: "15px" }}
@@ -66,5 +75,3 @@ const Form = styled.form`
   margin: 10px;
 `
 const TitleForm = styled.h4``
-
-const ErrorText = styled.p`color: red;`

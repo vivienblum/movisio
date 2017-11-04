@@ -6,12 +6,12 @@ import { connect } from "../../stores"
 
 class FormSignUp extends Component {
   state = {
-    username: "vivien",
-    password: "password",
-    confirmPassword: "password",
-    email: "vivien@test.com",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
     errorUsername: "",
-    errorEmail: "dkd"
+    errorEmail: ""
   }
 
   handleSignUp() {
@@ -73,7 +73,7 @@ class FormSignUp extends Component {
     } = this.state
     const samePassword = password === confirmPassword
     const valid =
-      username !== "" && password !== "" && email !== "" && samePassword
+      username !== "" && password.length >= 8 && email !== "" && samePassword
     return (
       <Form>
         <TitleForm>SIGN UP</TitleForm>

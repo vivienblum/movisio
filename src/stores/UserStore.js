@@ -29,10 +29,10 @@ class UserStore {
     return new Promise((resolve, reject) => {
       FetchResource.post(`${config.MOVISIO_API}/users`, argData)
         .then(data => {
-          Cookie.set("mv_token", data.jwt)
-          // setTimeout(() => {
-          //   page("/movies")
-          // }, 500)
+          Cookie.set("mv_token", data.user.auth_token)
+          setTimeout(() => {
+            page("/movies")
+          }, 500)
           resolve(data)
         })
         .catch(err => {
