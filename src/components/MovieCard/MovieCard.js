@@ -34,8 +34,8 @@ class MovieCard extends Component {
           <IconContainer className="IconContainer">
             <FontIcon
               className="material-icons"
-              color={`${Theme.lime600}`}
-              hoverColor={`${Theme.limeA700}`}
+              color={`${Theme.mediumGreen}`}
+              hoverColor={`${Theme.fluoGreen}`}
             >
               playlist_add
             </FontIcon>

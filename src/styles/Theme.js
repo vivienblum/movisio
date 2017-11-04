@@ -1,21 +1,13 @@
 const Theme = {
-  primaryColor: "#00F2B5",
-  lightFont: "'Roboto Light', sans-serif",
-  primaryFont: "'Roboto Regular', sans-serif",
-  buttonFont: " 'Proxima Nova Reg', sans-serif",
-  lime600: "#C0CA33",
-  limeA700: "#AEEA00",
-  lightGray: "#c9c9c9",
-  mediumText: "#848281",
-  errorText: "#FE000F",
-  darkText: "#7F7F7F",
-  text: "#1D2738",
-  beige: "#ECECEC",
-  navy: "#1D3752",
-  background: "#F9F9F9",
-  shotsContainer: {
-    sidebarBreakpoint: "980px"
-  }
+  lightGreen: "#cddc39",
+  mediumGreen: "#c0ca33",
+  fluoGreen: "#aeea00",
+  whiteGrey: "#eeeeee",
+  lightGrey: "#e0e0e0",
+  mediumGrey: "#bdbdbd",
+  darkGrey: "#424242",
+  blackGrey: "#212121",
+  red: "#ff0033"
 }
 
 export default Theme

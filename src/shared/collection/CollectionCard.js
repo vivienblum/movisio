@@ -4,7 +4,6 @@ import { func } from "prop-types"
 
 @observer
 export default class MovieCard extends Component {
-
   static propTypes = {
     onClick: func.isRequired
   }

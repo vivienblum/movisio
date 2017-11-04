@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
-import { Provider } from "mobx-react"
+import { Provider, observer } from "mobx-react"
+import injectTapEventPlugin from "react-tap-event-plugin"
+injectTapEventPlugin()
 
-import { UserStore } from "./../../stores"
+import { UserStore, MovieStore } from "./../../stores"
 
 const muiTheme = getMuiTheme({
   fontFamily: "Proxima Nova Light, sans-serif",
@@ -14,14 +16,17 @@ const muiTheme = getMuiTheme({
 })
 
 const state = {
-  userStore: UserStore
+  userStore: UserStore,
+  movieStore: MovieStore
 }
 
+@observer
 class App extends Component {
-  componentDidMount() {
-    // console.log(window.location.pathname);
+  componentWillMount() {
     if (window.location.pathname !== "/") {
-      UserStore.user.load()
+      return UserStore.user.load().catch(err => {
+        window.location.pathname = "/"
+      })
     }
   }
 
