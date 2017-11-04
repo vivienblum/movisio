@@ -5,13 +5,14 @@ import RaisedButton from "material-ui/RaisedButton"
 import { connect } from "../../stores"
 
 class FormSignIn extends Component {
-  state = { username: "", password: "", errorText: "" }
+  state = { username: "topito", password: "password", errorText: "" }
 
   handleSignIn() {
     const { username, password } = this.state
     return this.props.userStore.login({ username, password }).catch(err => {
-      // console.log(err.json)
-      this.setState({ errorText: "No user found or wrong username" })
+      if (err.status) {
+        this.setState({ errorText: "No user found or wrong username" })
+      }
     })
   }
 
