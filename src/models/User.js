@@ -128,6 +128,28 @@ class User extends Model {
     })
   }
 
+  setMovieFavorite(idMovie, argData) {
+    return new Promise((resolve, reject) => {
+      FetchResource.put(
+        `${config.MOVISIO_API}/users/movies/favorite/${idMovie}`,
+        argData
+      )
+        .then(data => {
+          let id
+          this.movies.forEach((movie, i) => {
+            if (movie.id === data.movie.id) {
+              id = i
+            }
+          })
+          this.movies[id] = data.movie
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
   logout() {
     Cookie.remove("mv_token")
     page("/")

@@ -29,6 +29,12 @@ class MovieOwnedCard extends Component {
     })
   }
 
+  handleSetFavorite(movie) {
+    this.props.user.setMovieFavorite(movie.id, {
+      favorite: !movie.favorite
+    })
+  }
+
   render() {
     const { isSelected, movie } = this.props
     return (
@@ -47,6 +53,7 @@ class MovieOwnedCard extends Component {
               remove_red_eye
             </FontIcon>
             <FontIcon
+              onClick={this.handleSetFavorite.bind(this, movie)}
               className="material-icons"
               color={`${Theme.mediumGreen}`}
               hoverColor={`${Theme.fluoGreen}`}
