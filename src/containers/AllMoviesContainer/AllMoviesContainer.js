@@ -19,6 +19,7 @@ class AllMoviesContainer extends Component {
   getChildToDisplay() {
     if (this.state.indexExpanded != null) {
       return React.createElement(MovieExpanded, {
+        // TODO check
         movie: this.props.user.movies[this.state.indexExpanded]
       })
     }

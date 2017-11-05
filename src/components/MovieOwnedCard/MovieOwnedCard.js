@@ -78,9 +78,6 @@ const Poster = styled.img`
   width: 200px;
   height: 300px;
   object-fit: cover;
-  &:hover {
-    filter: brightness(50%);
-  }
 `
 
 const IconContainer = styled.div`

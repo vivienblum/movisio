@@ -5,6 +5,9 @@
 }
 
 .movie-card:hover {
+  img {
+    filter: brightness(50%);
+  }
   .IconContainer {
     display: flex;
   }
