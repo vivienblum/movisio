@@ -24,7 +24,7 @@ class MovieCard extends Component {
   }
 
   handleAddMovie(movie) {
-    console.log(movie.id)
+    this.props.user.addMovie({ movie_id: movie.id })
   }
 
   render() {
