@@ -106,9 +106,13 @@ class User extends Model {
     })
   }
 
-  get moviesSortedRandom() {
-    return []
+  get moviesSortedByRate() {
+    return this.movies.sort((a, b) => {
+      return b.rate - a.rate
+    })
   }
+
+  get moviesSortedByRandom() {}
 
   setMovieWatched(idMovie, argData) {
     return new Promise((resolve, reject) => {

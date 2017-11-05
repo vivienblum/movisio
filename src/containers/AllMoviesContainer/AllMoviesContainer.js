@@ -27,13 +27,14 @@ class AllMoviesContainer extends Component {
 
   render() {
     const { indexExpanded } = this.state
-    const { user } = this.props
+    // const { user } = this.props
+    const movies = this.props.user.moviesSortedByRandom
     return (
       <div>
         <h1>AllMoviesContainer</h1>
         <SearchMovie />
-        <CollectionGrid childToDisplay={this.getChildToDisplay(user.movies)}>
-          {user.movies.map((movie, i) => {
+        <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
+          {movies.map((movie, i) => {
             return movie.owned ? (
               <MovieOwnedCard
                 movie={movie}
