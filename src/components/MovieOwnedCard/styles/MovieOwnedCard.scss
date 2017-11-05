@@ -17,6 +17,7 @@
   &:hover {
     img {
       filter: brightness(50%);
+      filter: grayscale(100%);
     }
   }
   img {

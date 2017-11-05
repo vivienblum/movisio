@@ -16,11 +16,10 @@ class AllMoviesContainer extends Component {
     this.setState({ indexExpanded: index })
   }
 
-  getChildToDisplay() {
+  getChildToDisplay(movies) {
     if (this.state.indexExpanded != null) {
       return React.createElement(MovieExpanded, {
-        // TODO check
-        movie: this.props.user.movies[this.state.indexExpanded]
+        movie: movies[this.state.indexExpanded]
       })
     }
     return null
@@ -33,7 +32,7 @@ class AllMoviesContainer extends Component {
       <div>
         <h1>AllMoviesContainer</h1>
         <SearchMovie />
-        <CollectionGrid childToDisplay={this.getChildToDisplay()}>
+        <CollectionGrid childToDisplay={this.getChildToDisplay(user.movies)}>
           {user.movies.map((movie, i) => {
             return movie.owned ? (
               <MovieOwnedCard

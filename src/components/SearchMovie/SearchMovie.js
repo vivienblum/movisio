@@ -14,14 +14,9 @@ class SearchMovie extends Component {
   }
 
   handleAddMovie(movie) {
-    return movie
-      .create()
-      .then(() => {
-        this.props.user.addMovieToAll(movie)
-      })
-      .then(() => {
-        this.setState({ movies: [] })
-      })
+    return movie.create().then(() => {
+      this.setState({ movies: [] })
+    })
   }
 
   render() {

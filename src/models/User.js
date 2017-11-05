@@ -106,6 +106,10 @@ class User extends Model {
     })
   }
 
+  get moviesSortedRandom() {
+    return []
+  }
+
   setMovieWatched(idMovie, argData) {
     return new Promise((resolve, reject) => {
       FetchResource.put(

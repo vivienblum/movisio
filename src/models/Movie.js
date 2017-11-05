@@ -1,7 +1,7 @@
 import { Model, Schema } from "mobx-models"
 import { FetchResource } from "../resources"
 // import { MovieStore } from "../stores"
-// import { User } from "../stores"
+import { UserStore } from "../stores"
 import config from "../config"
 
 class Movie extends Model {
@@ -29,8 +29,7 @@ class Movie extends Model {
         movie: this.getCorrectFormat()
       })
         .then(data => {
-          // MovieStore.addMovie(data.movie)
-          // User.addMovie(data.movie)
+          UserStore.user.addMovieToAll(data.movie)
           resolve(this)
         })
         .catch(err => {
