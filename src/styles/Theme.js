@@ -7,7 +7,8 @@ const Theme = {
   mediumGrey: "#bdbdbd",
   darkGrey: "#424242",
   blackGrey: "#212121",
-  red: "#ff0033"
+  red: "#ff0033",
+  pink: "#FF1744"
 }
 
 export default Theme

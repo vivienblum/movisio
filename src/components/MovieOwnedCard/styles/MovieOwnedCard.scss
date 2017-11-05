@@ -12,3 +12,14 @@
     display: flex;
   }
 }
+
+.movie-card.watched {
+  &:hover {
+    img {
+      filter: brightness(50%);
+    }
+  }
+  img {
+    filter: grayscale(100%);
+  }
+}

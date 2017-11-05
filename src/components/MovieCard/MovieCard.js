@@ -40,7 +40,7 @@ class MovieCard extends Component {
               onClick={this.handleAddMovie.bind(this, movie)}
               className="material-icons"
               color={`${Theme.mediumGreen}`}
-              hoverColor={`${Theme.fluoGreen}`}
+              hoverColor={`${Theme.pink}`}
             >
               playlist_add
             </FontIcon>
@@ -62,9 +62,9 @@ const Poster = styled.img`
   width: 200px;
   height: 300px;
   object-fit: cover;
-  &:hover {
-    filter: brightness(50%);
-  }
+  // &:hover {
+  //   filter: brightness(50%);
+  // }
 `
 
 const IconContainer = styled.div`

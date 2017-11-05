@@ -38,28 +38,50 @@ class MovieOwnedCard extends Component {
   render() {
     const { isSelected, movie } = this.props
     return (
-      <div className="movie-card">
+      <div className={`movie-card ${movie.watched && "watched"}`}>
         <CollectionCard
           onClick={this.handleClick.bind(this)}
           isSelected={isSelected}
         >
           <IconContainer className="IconContainer">
-            <FontIcon
-              onClick={this.handleSetWatched.bind(this, movie)}
-              className="material-icons"
-              color={`${Theme.mediumGreen}`}
-              hoverColor={`${Theme.fluoGreen}`}
-            >
-              remove_red_eye
-            </FontIcon>
-            <FontIcon
-              onClick={this.handleSetFavorite.bind(this, movie)}
-              className="material-icons"
-              color={`${Theme.mediumGreen}`}
-              hoverColor={`${Theme.fluoGreen}`}
-            >
-              favorite
-            </FontIcon>
+            {movie.watched ? (
+              <FontIcon
+                onClick={this.handleSetWatched.bind(this, movie)}
+                className="material-icons"
+                color={`${Theme.mediumGreen}`}
+                hoverColor={`${Theme.pink}`}
+              >
+                visibility
+              </FontIcon>
+            ) : (
+              <FontIcon
+                onClick={this.handleSetWatched.bind(this, movie)}
+                className="material-icons"
+                color={`${Theme.mediumGreen}`}
+                hoverColor={`${Theme.pink}`}
+              >
+                visibility_off
+              </FontIcon>
+            )}
+            {movie.favorite ? (
+              <FontIcon
+                onClick={this.handleSetFavorite.bind(this, movie)}
+                className="material-icons"
+                color={`${Theme.mediumGreen}`}
+                hoverColor={`${Theme.pink}`}
+              >
+                favorite
+              </FontIcon>
+            ) : (
+              <FontIcon
+                onClick={this.handleSetFavorite.bind(this, movie)}
+                className="material-icons"
+                color={`${Theme.mediumGreen}`}
+                hoverColor={`${Theme.pink}`}
+              >
+                favorite_outline
+              </FontIcon>
+            )}
           </IconContainer>
           <Poster alt="" src={movie.poster} />
         </CollectionCard>
