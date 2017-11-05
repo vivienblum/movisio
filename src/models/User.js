@@ -87,6 +87,69 @@ class User extends Model {
     this.movies.push(movie)
   }
 
+  addMovie(movie) {
+    return new Promise((resolve, reject) => {
+      FetchResource.post(`${config.MOVISIO_API}/users/movies`, movie)
+        .then(data => {
+          let id
+          this.movies.forEach((movie, i) => {
+            if (movie.id === data.movie.id) {
+              id = i
+            }
+          })
+          this.movies[id] = data.movie
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
+  setMovieWatched(idMovie, argData) {
+    return new Promise((resolve, reject) => {
+      FetchResource.put(
+        `${config.MOVISIO_API}/users/movies/watched/${idMovie}`,
+        argData
+      )
+        .then(data => {
+          let id
+          this.movies.forEach((movie, i) => {
+            if (movie.id === data.movie.id) {
+              id = i
+            }
+          })
+          this.movies[id] = data.movie
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
+  setMovieFavorite(idMovie, argData) {
+    return new Promise((resolve, reject) => {
+      FetchResource.put(
+        `${config.MOVISIO_API}/users/movies/favorite/${idMovie}`,
+        argData
+      )
+        .then(data => {
+          let id
+          this.movies.forEach((movie, i) => {
+            if (movie.id === data.movie.id) {
+              id = i
+            }
+          })
+          this.movies[id] = data.movie
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
   logout() {
     Cookie.remove("mv_token")
     page("/")

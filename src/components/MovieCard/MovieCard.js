@@ -3,7 +3,7 @@ import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import { func } from "prop-types"
 import styled from "styled-components"
 import FontIcon from "material-ui/FontIcon"
-// import FontIcon from "material-ui/FontIcon"
+import { connect } from "../../stores"
 import Theme from "../../styles/Theme"
 import { CollectionCard } from "../../shared/collection"
 import "./styles/MovieCard.scss"
@@ -23,6 +23,10 @@ class MovieCard extends Component {
     this.props.onMovieChange()
   }
 
+  handleAddMovie(movie) {
+    this.props.user.addMovie({ movie_id: movie.id })
+  }
+
   render() {
     const { isSelected, movie } = this.props
     return (
@@ -33,6 +37,7 @@ class MovieCard extends Component {
         >
           <IconContainer className="IconContainer">
             <FontIcon
+              onClick={this.handleAddMovie.bind(this, movie)}
               className="material-icons"
               color={`${Theme.mediumGreen}`}
               hoverColor={`${Theme.fluoGreen}`}
@@ -46,8 +51,12 @@ class MovieCard extends Component {
     )
   }
 }
-
-export default MovieCard
+const mapStateToProps = ({ userStore }) => {
+  return {
+    user: userStore.user
+  }
+}
+export default connect(mapStateToProps)(MovieCard)
 
 const Poster = styled.img`
   width: 200px;
