@@ -3,7 +3,7 @@ import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import styled from "styled-components"
 // import { func } from "prop-types"
 
-@asReactiveLoader
+//@asReactiveLoader
 class MovieExpanded extends Component {
   static propTypes = {
     // onClick: func.isRequired

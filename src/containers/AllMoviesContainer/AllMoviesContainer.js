@@ -8,7 +8,7 @@ import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { SearchMovie } from "../../components/SearchMovie"
 
-@asReactiveLoader
+//@asReactiveLoader
 class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 

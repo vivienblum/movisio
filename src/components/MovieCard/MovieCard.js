@@ -8,7 +8,7 @@ import Theme from "../../styles/Theme"
 import { CollectionCard } from "../../shared/collection"
 import "./styles/MovieCard.scss"
 
-@asReactiveLoader
+//@asReactiveLoader
 class MovieCard extends Component {
   static propTypes = {
     onMovieChange: func.isRequired
