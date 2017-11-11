@@ -1,12 +1,25 @@
 import React, { Component } from "react"
-import { asReactiveLoader } from "mobx-models/reactiveLoader"
+// import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import styled from "styled-components"
-// import { func } from "prop-types"
+import { connect } from "../../stores"
+import ActionMovie from "./ActionMovie"
 
 //@asReactiveLoader
 class MovieExpanded extends Component {
   static propTypes = {
     // onClick: func.isRequired
+  }
+
+  handleAddMovie(movie) {
+    this.props.user.addMovie({ movie_id: movie.id })
+  }
+
+  handleChangeWatched(movie) {
+    this.props.user.addMovie({ movie_id: movie.id })
+  }
+
+  handleChangeFavorite(movie) {
+    this.props.user.addMovie({ movie_id: movie.id })
   }
 
   render() {
@@ -15,7 +28,14 @@ class MovieExpanded extends Component {
       <MovieExpandedContainer>
         <Poster src={movie.poster} />
         <Details>
-          <Action>Action list</Action>
+          <Action>
+            {movie.owned ? (
+              "toto"
+            ) : (
+              <ActionMovie onAction={this.handleAddMovie.bind(this, movie)} />
+            )}
+          </Action>
+
           <Title>{movie.title}</Title>
           <Info>
             <Rate>{movie.rate}</Rate>
@@ -28,6 +48,12 @@ class MovieExpanded extends Component {
     )
   }
 }
+const mapStateToProps = ({ userStore }) => {
+  return {
+    user: userStore.user
+  }
+}
+export default connect(mapStateToProps)(MovieExpanded)
 
 const MovieExpandedContainer = styled.div`
   display: flex;
@@ -56,5 +82,3 @@ const Rate = styled.span``
 const Year = styled.span``
 const Runtime = styled.span`display: none;`
 const Plot = styled.p``
-
-export default MovieExpanded

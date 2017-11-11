@@ -18,7 +18,7 @@ class AddMovie extends Component {
     ) : (
       <RaisedButton
         backgroundColor="#a4c639"
-        hoverColor="#8AA62F"
+        hovercolor="#8AA62F"
         label="Add a movie"
         icon={<MdAdd />}
         style={{ margin: "10px" }}

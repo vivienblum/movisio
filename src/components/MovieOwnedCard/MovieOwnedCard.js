@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { asReactiveLoader } from "mobx-models/reactiveLoader"
+// import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import { func } from "prop-types"
 import styled from "styled-components"
 import FontIcon from "material-ui/FontIcon"
