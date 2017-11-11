@@ -16,8 +16,8 @@
 .movie-card.watched {
   &:hover {
     img {
-      filter: brightness(50%);
       filter: grayscale(100%);
+      filter: brightness(50%);
     }
   }
   img {

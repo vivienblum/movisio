@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { func } from "prop-types"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
-import ActionAndroid from "material-ui/svg-icons/action/android"
+import MdSearch from "react-icons/lib/md/search"
 // import { observer } from "mobx-react"
 import "./styles/Search.scss"
 
@@ -34,7 +34,7 @@ export default class Search extends Component {
             backgroundColor="#a4c639"
             hoverColor="#8AA62F"
             label="Search"
-            icon={<ActionAndroid />}
+            icon={<MdSearch />}
             onClick={onSearch.bind(this, search)}
           />
         </div>
