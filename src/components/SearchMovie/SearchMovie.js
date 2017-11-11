@@ -1,5 +1,8 @@
 import React, { Component } from "react"
 import styled from "styled-components"
+import { List, ListItem } from "material-ui/List"
+import Avatar from "material-ui/Avatar"
+
 import { Search } from "../../shared/search"
 import { connect } from "../../stores"
 
@@ -26,13 +29,12 @@ class SearchMovie extends Component {
         <List>
           {movies.map((movie, i) => {
             return (
-              <MoviePreview
+              <ListItem
                 key={i}
+                primaryText={movie.title}
+                leftAvatar={<Avatar src={movie.poster} />}
                 onClick={this.handleAddMovie.bind(this, movie)}
-              >
-                <Poster src={movie.poster} />
-                <h3>{movie.title}</h3>
-              </MoviePreview>
+              />
             )
           })}
         </List>
@@ -47,11 +49,11 @@ const mapStateToProps = state => ({
 })
 export default connect(mapStateToProps)(SearchMovie)
 
-const List = styled.div``
-const MoviePreview = styled.div`
-  display: flex;
-  cursor: pointer;
-`
+// const List = styled.div``
+// const MoviePreview = styled.div`
+//   display: flex;
+//   cursor: pointer;
+// `
 const Poster = styled.img`
   width: 50px;
   height: 70px;

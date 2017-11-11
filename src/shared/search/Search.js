@@ -32,7 +32,7 @@ export default class Search extends Component {
           <FlatButton
             backgroundColor="#a4c639"
             hoverColor="#8AA62F"
-            label="Search"
+            label="Add"
             onClick={onSearch.bind(this, search)}
           />
         </div>

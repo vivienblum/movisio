@@ -8,7 +8,7 @@ import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { SearchMovie } from "../../components/SearchMovie"
 
-//@asReactiveLoader
+@asReactiveLoader
 class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 
@@ -28,7 +28,7 @@ class AllMoviesContainer extends Component {
   render() {
     const { indexExpanded } = this.state
     // const { user } = this.props
-    const movies = this.props.user.moviesSortedByRandom
+    const movies = this.props.user.movies
     return (
       <div>
         <h1>AllMoviesContainer</h1>
