@@ -13,7 +13,6 @@ class User extends Model {
   @observable email = ""
   @observable password = ""
   @observable movies = observable.array([])
-  // @observable allMovies = observable.array([])
 
   retrieve() {
     return new Promise((resolve, reject) => {
