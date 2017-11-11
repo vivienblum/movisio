@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import { connect } from "../../stores"
 import ActionMovie from "./ActionMovie"
+import ActionMovieOwned from "./ActionMovieOwned"
 
 //@asReactiveLoader
 class MovieExpanded extends Component {
@@ -15,11 +16,15 @@ class MovieExpanded extends Component {
   }
 
   handleChangeWatched(movie) {
-    this.props.user.addMovie({ movie_id: movie.id })
+    this.props.user.setMovieWatched(movie.id, {
+      watched: !movie.watched
+    })
   }
 
   handleChangeFavorite(movie) {
-    this.props.user.addMovie({ movie_id: movie.id })
+    this.props.user.setMovieFavorite(movie.id, {
+      favorite: !movie.favorite
+    })
   }
 
   render() {
@@ -30,7 +35,11 @@ class MovieExpanded extends Component {
         <Details>
           <Action>
             {movie.owned ? (
-              "toto"
+              <ActionMovieOwned
+                movie={movie}
+                onWatched={this.handleChangeWatched.bind(this, movie)}
+                onFavorite={this.handleChangeFavorite.bind(this, movie)}
+              />
             ) : (
               <ActionMovie onAction={this.handleAddMovie.bind(this, movie)} />
             )}
