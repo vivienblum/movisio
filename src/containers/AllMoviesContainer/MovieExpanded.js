@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { connect } from "../../stores"
 import ActionMovie from "./ActionMovie"
 import ActionMovieOwned from "./ActionMovieOwned"
+import { Stars } from "../../shared/stars"
 
 //@asReactiveLoader
 class MovieExpanded extends Component {
@@ -47,7 +48,9 @@ class MovieExpanded extends Component {
 
           <Title>{movie.title}</Title>
           <Info>
-            <Rate>{movie.rate}</Rate>
+            <Rate>
+              <Stars rate={movie.rate} />
+            </Rate>
             <Year>{movie.year}</Year>
             <Runtime>{movie.runtime}</Runtime>
           </Info>
@@ -87,7 +90,7 @@ const Info = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
 `
-const Rate = styled.span``
+const Rate = styled.div``
 const Year = styled.span``
 const Runtime = styled.span`display: none;`
 const Plot = styled.p``
