@@ -1,12 +1,10 @@
 import React, { Component } from "react"
-// import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import styled from "styled-components"
 import { connect } from "../../stores"
 import ActionMovie from "./ActionMovie"
 import ActionMovieOwned from "./ActionMovieOwned"
 import { Stars } from "../../shared/stars"
 
-//@asReactiveLoader
 class MovieExpanded extends Component {
   static propTypes = {
     // onClick: func.isRequired

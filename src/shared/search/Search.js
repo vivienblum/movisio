@@ -3,10 +3,8 @@ import { func } from "prop-types"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
 import MdSearch from "react-icons/lib/md/search"
-// import { observer } from "mobx-react"
 import "./styles/Search.scss"
 
-// @observer
 export default class Search extends Component {
   state = { search: "" }
 

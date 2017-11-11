@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import { asReactiveLoader } from "mobx-models/reactiveLoader"
 import { func } from "prop-types"
 import styled from "styled-components"
 import FontIcon from "material-ui/FontIcon"
@@ -8,7 +7,6 @@ import Theme from "../../styles/Theme"
 import { CollectionCard } from "../../shared/collection"
 import "./styles/MovieCard.scss"
 
-//@asReactiveLoader
 class MovieCard extends Component {
   static propTypes = {
     onMovieChange: func.isRequired
