@@ -1,0 +1,7 @@
+@import "src/styles/base.scss";
+
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

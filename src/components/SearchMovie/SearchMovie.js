@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import styled from "styled-components"
 import { List, ListItem } from "material-ui/List"
 import Avatar from "material-ui/Avatar"
 
@@ -48,14 +47,3 @@ const mapStateToProps = state => ({
   user: state.userStore.user
 })
 export default connect(mapStateToProps)(SearchMovie)
-
-// const List = styled.div``
-// const MoviePreview = styled.div`
-//   display: flex;
-//   cursor: pointer;
-// `
-const Poster = styled.img`
-  width: 50px;
-  height: 70px;
-  object-fit: cover;
-`

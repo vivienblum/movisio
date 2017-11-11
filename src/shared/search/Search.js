@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import { func } from "prop-types"
 import TextField from "material-ui/TextField"
-import FlatButton from "material-ui/FlatButton"
+import RaisedButton from "material-ui/RaisedButton"
+import ActionAndroid from "material-ui/svg-icons/action/android"
 // import { observer } from "mobx-react"
 import "./styles/Search.scss"
 
@@ -29,10 +30,11 @@ export default class Search extends Component {
             onChange={this.handleUpdateInput.bind(this)}
             value={search}
           />
-          <FlatButton
+          <RaisedButton
             backgroundColor="#a4c639"
             hoverColor="#8AA62F"
-            label="Add"
+            label="Search"
+            icon={<ActionAndroid />}
             onClick={onSearch.bind(this, search)}
           />
         </div>
