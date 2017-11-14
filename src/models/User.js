@@ -9,10 +9,10 @@ import Movie from "./Movie"
 class User extends Model {
   id = null
   @observable username = ""
-  @observable name = ""
-  @observable email = ""
-  @observable password = ""
-  @observable movies = observable.array([])
+  name = ""
+  email = ""
+  password = ""
+  movies = observable.array([])
 
   retrieve() {
     return new Promise((resolve, reject) => {
