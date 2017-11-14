@@ -1,8 +1,6 @@
 import React, { Component } from "react"
-import { observer } from "mobx-react"
 import { func } from "prop-types"
 
-@observer
 export default class MovieCard extends Component {
   static propTypes = {
     onClick: func.isRequired

@@ -20,7 +20,7 @@ const state = {
   movieStore: MovieStore
 }
 
-@observer
+//@observer
 class App extends Component {
   componentWillMount() {
     if (window.location.pathname !== "/") {

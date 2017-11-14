@@ -1,10 +1,8 @@
 import React, { Component } from "react"
-import { observer } from "mobx-react"
 import { connect } from "../../stores"
 import { HeaderMovisio } from "../../components/HeaderMovisio"
 import { FooterMovisio } from "../../components/FooterMovisio"
 
-@observer
 class BasicContainer extends Component {
   render() {
     const { children } = this.props

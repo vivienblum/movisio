@@ -1,6 +1,5 @@
 import { Model, Schema } from "mobx-models"
 import { FetchResource } from "../resources"
-// import { MovieStore } from "../stores"
 import { UserStore } from "../stores"
 import config from "../config"
 

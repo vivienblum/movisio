@@ -1,8 +1,6 @@
 import React, { Component } from "react"
-import { observer } from "mobx-react"
 import "./styles/CollectionGrid.scss"
 
-@observer
 export default class CollectionGrid extends Component {
   state = { nbPerLine: 3, indexSelected: null }
 
