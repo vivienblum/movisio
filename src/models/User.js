@@ -8,7 +8,7 @@ import Movie from "./Movie"
 
 class User extends Model {
   id = null
-  @observable username = ""
+  /*@observable*/ username = ""
   name = ""
   email = ""
   password = ""

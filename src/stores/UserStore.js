@@ -7,7 +7,7 @@ import page from "page"
 import config from "../config"
 
 class UserStore {
-  @observable user = new User()
+  /*@observable*/ user = new User()
 
   login(argData) {
     return new Promise((resolve, reject) => {

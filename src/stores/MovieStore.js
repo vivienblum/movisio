@@ -6,8 +6,8 @@ import { FetchResource } from "../resources"
 import config from "../config"
 
 class MovieStore {
-  @observable allMovies = observable.array([])
-  @observable searchMovies = observable.array([])
+  allMovies = observable.array([])
+  searchMovies = observable.array([])
 
   getAllMovies() {
     return new Promise((resolve, reject) => {

@@ -13,7 +13,7 @@ import MovieExpanded from "./MovieExpanded"
 import { AddMovie } from "../../components/AddMovie"
 import "./styles/AllMoviesContainer.scss"
 
-@asReactiveLoader
+//@asReactiveLoader
 class AllMoviesContainer extends Component {
   state = { indexExpanded: null }
 

@@ -8,7 +8,7 @@ import { connect } from "../../stores"
 
 import { Header } from "../../shared/header"
 
-@asReactiveLoader
+//@asReactiveLoader
 class HeaderMovisio extends Component {
   handleLogout() {
     this.props.user.logout()

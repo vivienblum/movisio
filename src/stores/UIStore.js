@@ -3,8 +3,8 @@ import { observable } from "mobx"
 
 class UIStore {
   /** @deprecated */
-  @observable flash = {}
-  @observable showFlash = false
+  // @observable flash = {}
+  // @observable showFlash = false
 
   /** @deprecated */
   closeFlash(e) {
