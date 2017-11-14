@@ -44,7 +44,7 @@
     "eslint-plugin-import": "2.0.1",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.4.1",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "0.10.0",
     "fs-extra": "0.30.0",
     "html-webpack-plugin": "2.24.0",
@@ -59,7 +59,7 @@
     "sass-loader": "^4.1.1",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "^1.14.0",
+    "webpack": "^3.8.1",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
@@ -71,8 +71,12 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
-    "setupFiles": ["<rootDir>/config/polyfills.js"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
     ],
@@ -83,14 +87,20 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     }
   },
   "babel": {
-    "plugins": ["transform-decorators-legacy"],
-    "presets": ["react-app"]
+    "plugins": [
+      "transform-decorators-legacy"
+    ],
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
