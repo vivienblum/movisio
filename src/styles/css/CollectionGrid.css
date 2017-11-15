@@ -1,0 +1,83 @@
+/*
+Error: Undefined variable: "$MEDIUM_GREEN".
+        on line 9 of src/styles/scss/CollectionGrid.scss
+
+4:   align-items: center;
+5: 
+6:   .line-display {
+7:     min-height: 100px;
+8:     width: 100%;
+9:     background-color: $MEDIUM_GREEN;
+10:   }
+11:   .line-movie {
+12:     display: flex;
+13:   }
+14:   .collection-card {
+
+Backtrace:
+src/styles/scss/CollectionGrid.scss:9
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/script/tree/variable.rb:49:in `_perform'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/script/tree/node.rb:50:in `perform'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `block in with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `block in with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `map'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `block in with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `with_base'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `each'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$MEDIUM_GREEN\".\A         on line 9 of src/styles/scss/CollectionGrid.scss\A \A 4:   align-items: center;\A 5: \A 6:   .line-display {\A 7:     min-height: 100px;\A 8:     width: 100%;\A 9:     background-color: $MEDIUM_GREEN;\A 10:   }\A 11:   .line-movie {\A 12:     display: flex;\A 13:   }\A 14:   .collection-card {"; }

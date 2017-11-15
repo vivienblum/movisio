@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACb,OAAO,EAAE,IAAI;;AAIb,gCAAe;EACb,OAAO,EAAE,IAAI",
+"sources": ["../scss/MovieCard.scss"],
+"names": [],
+"file": "MovieCard.css"
+}

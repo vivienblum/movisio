@@ -3,7 +3,6 @@ import { func } from "prop-types"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
 import MdSearch from "react-icons/lib/md/search"
-import "./styles/Search.scss"
 
 export default class Search extends Component {
   state = { search: "" }

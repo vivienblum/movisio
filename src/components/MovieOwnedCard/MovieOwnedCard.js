@@ -5,7 +5,6 @@ import FontIcon from "material-ui/FontIcon"
 import { connect } from "../../stores"
 import Theme from "../../styles/Theme"
 import { CollectionCard } from "../../shared/collection"
-import "./styles/MovieOwnedCard.scss"
 
 class MovieOwnedCard extends Component {
   static propTypes = {

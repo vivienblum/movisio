@@ -1,0 +1,15 @@
+.IconContainer {
+  display: none; }
+
+.movie-card:hover img {
+  filter: brightness(50%); }
+.movie-card:hover .IconContainer {
+  display: flex; }
+
+.movie-card.watched:hover img {
+  filter: grayscale(100%);
+  filter: brightness(50%); }
+.movie-card.watched img {
+  filter: grayscale(100%); }
+
+/*# sourceMappingURL=MovieOwnedCard.css.map */

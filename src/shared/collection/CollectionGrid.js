@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import "./styles/CollectionGrid.scss"
 
 export default class CollectionGrid extends Component {
   state = { nbPerLine: 3, indexSelected: null }

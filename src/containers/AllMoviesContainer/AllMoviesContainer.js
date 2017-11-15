@@ -11,7 +11,6 @@ import { MovieCard } from "../../components/MovieCard"
 import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { AddMovie } from "../../components/AddMovie"
-import "./styles/AllMoviesContainer.scss"
 
 //@asReactiveLoader
 class AllMoviesContainer extends Component {
