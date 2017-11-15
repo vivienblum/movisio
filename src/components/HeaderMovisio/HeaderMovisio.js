@@ -8,33 +8,37 @@ import { connect } from "../../stores"
 
 import { Header } from "../../shared/header"
 
-//@asReactiveLoader
-class HeaderMovisio extends Component {
-  handleLogout() {
-    this.props.user.logout()
-  }
+const HeaderMovisio = asReactiveLoader(
+  class HeaderMovisio extends Component {
+    handleLogout() {
+      this.props.user.logout()
+    }
 
-  render() {
-    const { user } = this.props
-    return (
-      <Header>
-        <LeftContainer>
-          <Link to="/movies" className="header-item">
-            <LogoImage
-              src={require("../../images/logos/movisio-logo-white.png")}
-            />
-          </Link>
-        </LeftContainer>
-        <RightContainer>
-          <span className="header-item">{user.username}</span>
-          <span onClick={this.handleLogout.bind(this)} className="header-item">
-            {<MdPowerSettingsNew />}
-          </span>
-        </RightContainer>
-      </Header>
-    )
+    render() {
+      const { user } = this.props
+      return (
+        <Header>
+          <LeftContainer>
+            <Link to="/movies" className="header-item">
+              <LogoImage
+                src={require("../../images/logos/movisio-logo-white.png")}
+              />
+            </Link>
+          </LeftContainer>
+          <RightContainer>
+            <span className="header-item">{user.username}</span>
+            <span
+              onClick={this.handleLogout.bind(this)}
+              className="header-item"
+            >
+              {<MdPowerSettingsNew />}
+            </span>
+          </RightContainer>
+        </Header>
+      )
+    }
   }
-}
+)
 const mapStateToProps = ({ userStore }) => {
   return {
     user: userStore.user

@@ -1,5 +1,5 @@
 import { Model, Schema, parse } from "mobx-models"
-import { observable } from "mobx"
+import { observable, extendObservable } from "mobx"
 import Cookie from "js-cookie"
 import page from "page"
 import { FetchResource } from "../resources"
@@ -7,8 +7,13 @@ import config from "../config"
 import Movie from "./Movie"
 
 class User extends Model {
+  constructor() {
+    super()
+    extendObservable(this, {
+      username: ""
+    })
+  }
   id = null
-  /*@observable*/ username = ""
   name = ""
   email = ""
   password = ""
