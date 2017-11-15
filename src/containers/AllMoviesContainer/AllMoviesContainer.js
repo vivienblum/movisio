@@ -37,7 +37,7 @@ const AllMoviesContainer = asReactiveLoader(
       const { indexExpanded } = this.state
       // const { user } = this.props
       // const movies = this.props.user.movies
-      const movies = this.props.user.moviesSortedByRate
+      const movies = this.props.user.moviesSortedByRecent
       return (
         <div className="movies-container">
           <h1>All Movies</h1>

@@ -116,6 +116,12 @@ class User extends Model {
     })
   }
 
+  get moviesSortedByRecent() {
+    return this.movies.sort((a, b) => {
+      return b.year - a.year
+    })
+  }
+
   get moviesSortedByRandom() {}
 
   setMovieWatched(idMovie, argData) {
