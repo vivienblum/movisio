@@ -16,6 +16,10 @@ const AllMoviesContainer = asReactiveLoader(
   class AllMoviesContainer extends Component {
     state = { indexExpanded: null }
 
+    // componentWillDid() {
+    //
+    // }
+
     handleExpand = index => {
       this.setState({ indexExpanded: index })
     }
@@ -32,7 +36,8 @@ const AllMoviesContainer = asReactiveLoader(
     render() {
       const { indexExpanded } = this.state
       // const { user } = this.props
-      const movies = this.props.user.movies
+      // const movies = this.props.user.movies
+      const movies = this.props.user.moviesSortedByRate
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
