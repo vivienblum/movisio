@@ -3,6 +3,7 @@ import { observable, extendObservable } from "mobx"
 import Cookie from "js-cookie"
 import page from "page"
 import { FetchResource } from "../resources"
+import { shuffle } from "../resources/UIResource"
 import config from "../config"
 import Movie from "./Movie"
 
@@ -122,7 +123,9 @@ class User extends Model {
     })
   }
 
-  get moviesSortedByRandom() {}
+  get moviesSortedByRandom() {
+    return shuffle(this.movies)
+  }
 
   setMovieWatched(idMovie, argData) {
     return new Promise((resolve, reject) => {
