@@ -1,8 +1,10 @@
 import { parse } from "mobx-models"
 import { observable } from "mobx"
+
 import Movie from "./../models/Movie"
 import MovieAPI from "./../models/MovieAPI"
 import { FetchResource } from "../resources"
+import { shuffle } from "../resources/UIResource"
 import config from "../config"
 
 class MovieStore {
@@ -42,6 +44,28 @@ class MovieStore {
 
   addMovie(movie) {
     this.allMovies.push(movie)
+  }
+
+  moviesSortedByRate(movies) {
+    return movies.sort((a, b) => {
+      return b.rate - a.rate
+    })
+  }
+
+  moviesSortedByRecent(movies) {
+    return movies.sort((a, b) => {
+      return b.year - a.year
+    })
+  }
+
+  moviesSortedByRandom(movies) {
+    return shuffle(movies)
+  }
+
+  moviesFilteredByOwned(movies) {
+    return movies.filter(movie => {
+      return movie.owned
+    })
   }
 }
 

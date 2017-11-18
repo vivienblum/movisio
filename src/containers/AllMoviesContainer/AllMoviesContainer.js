@@ -28,8 +28,8 @@ const AllMoviesContainer = asReactiveLoader(
 
     render() {
       const { indexExpanded } = this.state
-      // const { user } = this.props
-      const movies = this.props.user.movies
+      const { movieStore } = this.props
+      const movies = movieStore.moviesFilteredByOwned(this.props.user.movies)
       // const movies = this.props.user.moviesSortedByRandom
       return (
         <div className="movies-container">
