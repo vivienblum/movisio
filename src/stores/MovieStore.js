@@ -67,6 +67,24 @@ class MovieStore {
       return movie.owned
     })
   }
+
+  moviesFilteredByWatched(movies) {
+    return movies.filter(movie => {
+      return movie.watched
+    })
+  }
+
+  moviesFilteredByFavorite(movies) {
+    return movies.filter(movie => {
+      return movie.favorite
+    })
+  }
+
+  moviesFilteredByTilte(movies, title = "") {
+    return movies.filter(movie => {
+      if (movie.title.indexOf(title) > -1) return movie
+    })
+  }
 }
 
 const movieStore = new MovieStore()
