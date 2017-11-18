@@ -1,24 +1,17 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
-// import { GridList, GridTile } from "material-ui/GridList"
-// import IconButton from "material-ui/IconButton"
-// import StarBorder from "material-ui/svg-icons/toggle/star-border"
 
 import { connect } from "../../stores"
 import { CollectionGrid } from "../../shared/collection"
-// import MovieCard from "./MovieCard"
 import { MovieCard } from "../../components/MovieCard"
 import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { AddMovie } from "../../components/AddMovie"
+import { Filters } from "../../components/Filters"
 
 const AllMoviesContainer = asReactiveLoader(
   class AllMoviesContainer extends Component {
     state = { indexExpanded: null }
-
-    // componentWillDid() {
-    //
-    // }
 
     handleExpand = index => {
       this.setState({ indexExpanded: index })
@@ -42,6 +35,7 @@ const AllMoviesContainer = asReactiveLoader(
         <div className="movies-container">
           <h1>All Movies</h1>
           <AddMovie />
+          <Filters />
           <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
             {movies.map((movie, i) => {
               return movie.owned ? (
