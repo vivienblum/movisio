@@ -1,49 +1,35 @@
 import React, { Component } from "react"
-import { List, ListItem } from "material-ui/List"
-import Avatar from "material-ui/Avatar"
+import { Card, CardActions, CardHeader, CardText } from "material-ui/Card"
+import SelectField from "material-ui/SelectField"
+import MenuItem from "material-ui/MenuItem"
+import FlatButton from "material-ui/FlatButton"
 
 import { Search } from "../../shared/search"
-import { connect } from "../../stores"
 
 class Filters extends Component {
-  state = { movies: [] }
+  state = { sort: 3 }
 
-  handleSearch(search) {
-    return this.props.movieStore.getSearch({ search }).then(() => {
-      const movies = this.props.movieStore.searchMovies
-      this.setState({ movies })
-    })
-  }
-
-  handleAddMovie(movie) {
-    return movie.create().then(() => {
-      this.setState({ movies: [] })
-    })
+  handleChangeSort(sort) {
+    this.setState({ sort })
   }
 
   render() {
-    const { movies } = this.state
+    const { sort } = this.state
     return (
-      <Search onSearch={this.handleSearch.bind(this)}>
-        <List>
-          {movies.map((movie, i) => {
-            return (
-              <ListItem
-                key={i}
-                primaryText={movie.title}
-                leftAvatar={<Avatar src={movie.poster} />}
-                onClick={this.handleAddMovie.bind(this, movie)}
-              />
-            )
-          })}
-        </List>
-      </Search>
+      <Card style={{ minHeight: "200px" }}>
+        <SelectField
+          floatingLabelText="Sort"
+          value={sort}
+          onChange={this.handleChangeSort.bind(this)}
+        >
+          <MenuItem value={1} primaryText="None" />
+          <MenuItem value={2} primaryText="Random" />
+          <MenuItem value={3} primaryText="Recent" />
+          <MenuItem value={4} primaryText="Popular" />
+        </SelectField>
+      </Card>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  movieStore: state.movieStore,
-  user: state.userStore.user
-})
-export default connect(mapStateToProps)(Filters)
+export default Filters

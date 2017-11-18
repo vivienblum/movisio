@@ -1,9 +1,9 @@
 import React, { Component } from "react"
+// import injectTapEventPlugin from "react-tap-event-plugin"
+// injectTapEventPlugin()
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import getMuiTheme from "material-ui/styles/getMuiTheme"
 import { Provider } from "mobx-react"
-// import injectTapEventPlugin from "react-tap-event-plugin"
-// injectTapEventPlugin()
 
 import { UserStore, MovieStore } from "./../../stores"
 
