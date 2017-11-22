@@ -79,7 +79,7 @@ class MovieStore {
     }
   }
 
-  moviesFilteredByWatched(movies, watched = false) {
+  moviesFilteredByWatched(movies, watched = null) {
     switch (watched) {
       case true:
         return movies.filter(movie => {
@@ -96,10 +96,21 @@ class MovieStore {
     }
   }
 
-  moviesFilteredByFavorite(movies) {
-    return movies.filter(movie => {
-      return movie.favorite
-    })
+  moviesFilteredByFavorite(movies, favorite = null) {
+    switch (favorite) {
+      case true:
+        return movies.filter(movie => {
+          return movie.favorite
+        })
+      case false:
+        return movies.filter(movie => {
+          return !movie.favorite
+        })
+      default:
+        return movies.filter(movie => {
+          return movie
+        })
+    }
   }
 
   moviesFilteredByTilte(movies, title = "") {
