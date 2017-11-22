@@ -135,7 +135,6 @@ class MovieStore {
         newMovies = movies
         break
     }
-
     return newMovies
   }
 }

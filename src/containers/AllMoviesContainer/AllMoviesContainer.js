@@ -42,7 +42,6 @@ const AllMoviesContainer = asReactiveLoader(
         this.props.user.movies,
         this.state.sort
       )
-      // console.log(movies)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
