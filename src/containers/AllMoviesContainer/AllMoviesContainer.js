@@ -11,7 +11,7 @@ import { Filters } from "../../components/Filters"
 
 const AllMoviesContainer = asReactiveLoader(
   class AllMoviesContainer extends Component {
-    state = { indexExpanded: null }
+    state = { indexExpanded: null, sort: null }
 
     handleExpand = index => {
       this.setState({ indexExpanded: index })
@@ -26,16 +26,31 @@ const AllMoviesContainer = asReactiveLoader(
       return null
     }
 
+    handleChangeSort(sort) {
+      this.setState({ sort })
+    }
+
+    handleChangeFilters(filter) {
+      console.log(filter)
+    }
+
     render() {
       const { indexExpanded } = this.state
       const { movieStore } = this.props
-      const movies = movieStore.moviesFilteredByTilte(this.props.user.movies)
-      // const movies = this.props.user.moviesSortedByRandom
+      // const movies = movieStore.moviesFilteredByTilte(this.props.user.movies)
+      const movies = movieStore.applySortFilter(
+        this.props.user.movies,
+        this.state.sort
+      )
+      // console.log(movies)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
           <AddMovie />
-          <Filters />
+          <Filters
+            onChangeSort={this.handleChangeSort.bind(this)}
+            onChangeFilters={this.handleChangeFilters.bind(this)}
+          />
           <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
             {movies.map((movie, i) => {
               return movie.owned ? (

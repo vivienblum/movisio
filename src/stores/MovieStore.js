@@ -118,6 +118,26 @@ class MovieStore {
       return movie.title.indexOf(title) > -1
     })
   }
+
+  applySortFilter(movies, sort = null, filters = []) {
+    let newMovies = []
+    switch (sort) {
+      case "2":
+        newMovies = movies
+        break
+      case "3":
+        newMovies = this.moviesSortedByRecent(movies)
+        break
+      case "4":
+        newMovies = this.moviesSortedByRate(movies)
+        break
+      default:
+        newMovies = movies
+        break
+    }
+
+    return newMovies
+  }
 }
 
 const movieStore = new MovieStore()
