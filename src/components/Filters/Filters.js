@@ -1,13 +1,13 @@
 import React, { Component } from "react"
-import { Card, CardActions, CardHeader, CardText } from "material-ui/Card"
+import { Card } from "material-ui/Card"
 import SelectField from "material-ui/SelectField"
 import MenuItem from "material-ui/MenuItem"
-import FlatButton from "material-ui/FlatButton"
+// import FlatButton from "material-ui/FlatButton"
 
-import { Search } from "../../shared/search"
+// import { Search } from "../../shared/search"
 
 class Filters extends Component {
-  state = { sort: 3 }
+  state = { sort: 3, filters: [] }
 
   handleChangeSort(sort) {
     this.setState({ sort })

@@ -1,6 +1,3 @@
-/* global Rollbar */
-import { observable } from "mobx"
-
 class UIStore {
   /** @deprecated */
   // @observable flash = {}

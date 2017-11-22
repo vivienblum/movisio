@@ -1,4 +1,3 @@
-import { observable } from "mobx"
 import Cookie from "js-cookie"
 import User from "./../models/User"
 import { FetchResource } from "../resources"
