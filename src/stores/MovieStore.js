@@ -115,7 +115,7 @@ class MovieStore {
 
   moviesFilteredByTilte(movies, title = "") {
     return movies.filter(movie => {
-      if (movie.title.indexOf(title) > -1) return movie
+      return movie.title.indexOf(title) > -1
     })
   }
 }
