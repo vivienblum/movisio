@@ -62,10 +62,21 @@ class MovieStore {
     return shuffle(movies)
   }
 
-  moviesFilteredByOwned(movies) {
-    return movies.filter(movie => {
-      return movie.owned
-    })
+  moviesFilteredByOwned(movies, owned = false) {
+    switch (owned) {
+      case true:
+        return movies.filter(movie => {
+          return movie.owned
+        })
+      case false:
+        return movies.filter(movie => {
+          return !movie.owned
+        })
+      default:
+        return movies.filter(movie => {
+          return movie
+        })
+    }
   }
 
   moviesFilteredByWatched(movies) {
