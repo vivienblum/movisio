@@ -124,12 +124,14 @@ class MovieStore {
     sort = null,
     search = null,
     owned = null,
-    watched = null
+    watched = null,
+    favorite = null
   ) {
     let newMovies = []
     newMovies = this.moviesFilteredByTilte(movies, search)
     newMovies = this.moviesFilteredByOwned(movies, owned)
     newMovies = this.moviesFilteredByWatched(newMovies, watched)
+    newMovies = this.moviesFilteredByFavorite(newMovies, favorite)
     switch (sort) {
       // case "2":
       //   newMovies = movies

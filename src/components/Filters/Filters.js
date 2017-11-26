@@ -12,7 +12,13 @@ import VisibilityOff from "material-ui/svg-icons/action/visibility-off"
 // import { Search } from "../../shared/search"
 
 class Filters extends Component {
-  state = { sort: null, search: "", owned: false, watched: false }
+  state = {
+    sort: null,
+    search: "",
+    owned: false,
+    watched: false,
+    favorite: false
+  }
 
   static propTypes = {
     onChangeSort: func.isRequired,
@@ -59,8 +65,21 @@ class Filters extends Component {
     )
   }
 
+  handleFavoriteChange(e) {
+    this.setState(
+      prevState => {
+        return {
+          favorite: !prevState.favorite
+        }
+      },
+      () => {
+        this.props.onChangeFilters(this.state.favorite, "favorite")
+      }
+    )
+  }
+
   render() {
-    const { sort, search, owned, watched } = this.state
+    const { sort, search, owned, watched, favorite } = this.state
     return (
       <Card>
         <select selected={sort} onChange={this.handleChangeSort.bind(this)}>
@@ -88,9 +107,11 @@ class Filters extends Component {
           label="Watched"
         />
         <Checkbox
+          checked={favorite}
+          onCheck={this.handleFavoriteChange.bind(this)}
           checkedIcon={<ActionFavorite />}
           uncheckedIcon={<ActionFavoriteBorder />}
-          label="favorite"
+          label="Favorite"
         />
       </Card>
     )

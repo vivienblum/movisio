@@ -16,7 +16,8 @@ const AllMoviesContainer = asReactiveLoader(
       sort: null,
       search: "",
       owned: null,
-      watched: null
+      watched: null,
+      favorite: null
     }
 
     handleExpand = index => {
@@ -48,11 +49,11 @@ const AllMoviesContainer = asReactiveLoader(
           this.setState({ watched: filter })
           break
         case "favorite":
+          this.setState({ favorite: filter })
           break
         default:
           break
       }
-      console.log(filter, type)
     }
 
     render() {
@@ -64,7 +65,8 @@ const AllMoviesContainer = asReactiveLoader(
         this.state.sort,
         this.state.search,
         this.state.owned,
-        this.state.watched
+        this.state.watched,
+        this.state.favorite
       )
       return (
         <div className="movies-container">
