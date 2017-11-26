@@ -4,6 +4,7 @@ import MdVisibilityOff from "react-icons/lib/md/visibility-off"
 import MdVisibility from "react-icons/lib/md/visibility"
 import MdFavorite from "react-icons/lib/md/favorite"
 import MdFavoriteOutline from "react-icons/lib/md/favorite-outline"
+import Delete from "material-ui/svg-icons/action/delete"
 
 import Theme from "../../styles/Theme"
 
@@ -30,7 +31,7 @@ export default function ActionMovieOwned({
       <RaisedButton
         backgroundColor={`${Theme.lightGrey}`}
         label={"Remove"}
-        icon={movie.favorite ? <MdFavoriteOutline /> : <MdFavorite />}
+        icon={<Delete />}
         onClick={onRemove.bind(this)}
       />
     </div>
