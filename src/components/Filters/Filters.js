@@ -83,12 +83,13 @@ class Filters extends Component {
   render() {
     const { sort, search, owned, watched, favorite } = this.state
     return (
-      <Card>
+      <Card style={{ margin: "10px", width: "70%" }}>
         <select selected={sort} onChange={this.handleChangeSort.bind(this)}>
           <option value={1}>None</option>
           <option value={3}>Recent</option>
           <option value={4}>Popular</option>
         </select>
+        <br />
         <TextField
           hintText="Search"
           onChange={this.handleSearchChange.bind(this)}
