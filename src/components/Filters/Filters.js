@@ -12,7 +12,7 @@ import VisibilityOff from "material-ui/svg-icons/action/visibility-off"
 // import { Search } from "../../shared/search"
 
 class Filters extends Component {
-  state = { sort: null, search: "", watched: false }
+  state = { sort: null, search: "", owned: false, watched: false }
 
   static propTypes = {
     onChangeSort: func.isRequired,
@@ -33,6 +33,19 @@ class Filters extends Component {
     })
   }
 
+  handleOwnedChange(e) {
+    this.setState(
+      prevState => {
+        return {
+          owned: !prevState.owned
+        }
+      },
+      () => {
+        this.props.onChangeFilters(this.state.owned, "owned")
+      }
+    )
+  }
+
   handleWatchedChange(e) {
     this.setState(
       prevState => {
@@ -47,7 +60,7 @@ class Filters extends Component {
   }
 
   render() {
-    const { sort, search, watched } = this.state
+    const { sort, search, owned, watched } = this.state
     return (
       <Card>
         <select selected={sort} onChange={this.handleChangeSort.bind(this)}>
@@ -59,6 +72,13 @@ class Filters extends Component {
           hintText="Search"
           onChange={this.handleSearchChange.bind(this)}
           value={search}
+        />
+        <Checkbox
+          checked={owned}
+          onCheck={this.handleOwnedChange.bind(this)}
+          checkedIcon={<Visibility />}
+          uncheckedIcon={<VisibilityOff />}
+          label="Owned"
         />
         <Checkbox
           checked={watched}
