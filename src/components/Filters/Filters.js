@@ -7,6 +7,8 @@ import ActionFavorite from "material-ui/svg-icons/action/favorite"
 import ActionFavoriteBorder from "material-ui/svg-icons/action/favorite-border"
 import Visibility from "material-ui/svg-icons/action/visibility"
 import VisibilityOff from "material-ui/svg-icons/action/visibility-off"
+import Archive from "material-ui/svg-icons/content/archive"
+import UnArchive from "material-ui/svg-icons/content/unarchive"
 // import FlatButton from "material-ui/FlatButton"
 
 // import { Search } from "../../shared/search"
@@ -95,8 +97,8 @@ class Filters extends Component {
         <Checkbox
           checked={owned}
           onCheck={this.handleOwnedChange.bind(this)}
-          checkedIcon={<Visibility />}
-          uncheckedIcon={<VisibilityOff />}
+          checkedIcon={<Archive />}
+          uncheckedIcon={<UnArchive />}
           label="Owned"
         />
         <Checkbox
