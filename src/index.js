@@ -1,9 +1,14 @@
+// import injectTapEventPlugin from "react-tap-event-plugin"
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
+
 import { Router, browserHistory } from "react-router"
 import routes from "./router/router"
-// import "./styles/base.scss"
+
 import "./styles/css/index.css"
+
+// var injectTapEventPlugin = require("react-tap-event-plugin")
+// injectTapEventPlugin()
 
 const rootEl = document.getElementById("root")
 
