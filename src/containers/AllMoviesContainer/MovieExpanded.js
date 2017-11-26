@@ -26,6 +26,10 @@ class MovieExpanded extends Component {
     })
   }
 
+  handleRemoveMovie(movie) {
+    this.props.user.removeMovie(movie.id)
+  }
+
   render() {
     const { movie } = this.props
     return (
@@ -38,6 +42,7 @@ class MovieExpanded extends Component {
                 movie={movie}
                 onWatched={this.handleChangeWatched.bind(this, movie)}
                 onFavorite={this.handleChangeFavorite.bind(this, movie)}
+                onRemove={this.handleRemoveMovie.bind(this, movie)}
               />
             ) : (
               <ActionMovie onAction={this.handleAddMovie.bind(this, movie)} />

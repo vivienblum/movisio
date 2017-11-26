@@ -155,6 +155,25 @@ class User extends Model {
     })
   }
 
+  removeMovie(idMovie) {
+    return new Promise((resolve, reject) => {
+      FetchResource.delete(`${config.MOVISIO_API}/users/movies/${idMovie}`)
+        .then(data => {
+          let id
+          this.movies.forEach((movie, i) => {
+            if (movie.id === data.movie.id) {
+              id = i
+            }
+          })
+          this.movies[id] = data.movie
+          resolve(this.movies)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  }
+
   logout() {
     Cookie.remove("mv_token")
     page("/")

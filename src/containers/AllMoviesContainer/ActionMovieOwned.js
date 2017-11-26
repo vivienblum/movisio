@@ -7,7 +7,12 @@ import MdFavoriteOutline from "react-icons/lib/md/favorite-outline"
 
 import Theme from "../../styles/Theme"
 
-export default function ActionMovieOwned({ movie, onWatched, onFavorite }) {
+export default function ActionMovieOwned({
+  movie,
+  onWatched,
+  onFavorite,
+  onRemove
+}) {
   return (
     <div>
       <RaisedButton
@@ -21,6 +26,12 @@ export default function ActionMovieOwned({ movie, onWatched, onFavorite }) {
         label={movie.favorite ? "Remove from favorites" : "Add to favorites"}
         icon={movie.favorite ? <MdFavoriteOutline /> : <MdFavorite />}
         onClick={onFavorite.bind(this)}
+      />
+      <RaisedButton
+        backgroundColor={`${Theme.lightGrey}`}
+        label={"Remove"}
+        icon={movie.favorite ? <MdFavoriteOutline /> : <MdFavorite />}
+        onClick={onRemove.bind(this)}
       />
     </div>
   )
