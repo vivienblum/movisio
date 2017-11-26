@@ -83,7 +83,7 @@ class Filters extends Component {
   render() {
     const { sort, search, owned, watched, favorite } = this.state
     return (
-      <Card style={{ margin: "10px", width: "70%" }}>
+      <Card style={{ padding: "10px", width: "70%" }}>
         <select selected={sort} onChange={this.handleChangeSort.bind(this)}>
           <option value={1}>None</option>
           <option value={3}>Recent</option>
