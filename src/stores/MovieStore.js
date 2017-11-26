@@ -119,9 +119,10 @@ class MovieStore {
     })
   }
 
-  applySortFilter(movies, sort = null, search = null) {
+  applySortFilter(movies, sort = null, search = null, watched = null) {
     let newMovies = []
     newMovies = this.moviesFilteredByTilte(movies, search)
+    newMovies = this.moviesFilteredByWatched(newMovies, watched)
     switch (sort) {
       // case "2":
       //   newMovies = movies
