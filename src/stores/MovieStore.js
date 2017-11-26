@@ -115,16 +115,17 @@ class MovieStore {
 
   moviesFilteredByTilte(movies, title = "") {
     return movies.filter(movie => {
-      return movie.title.indexOf(title) > -1
+      return movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1
     })
   }
 
-  applySortFilter(movies, sort = null, filters = []) {
+  applySortFilter(movies, sort = null, search = null) {
     let newMovies = []
+    newMovies = this.moviesFilteredByTilte(movies, search)
     switch (sort) {
-      case "2":
-        newMovies = movies
-        break
+      // case "2":
+      //   newMovies = movies
+      //   break
       case "3":
         newMovies = this.moviesSortedByRecent(movies)
         break
@@ -132,7 +133,7 @@ class MovieStore {
         newMovies = this.moviesSortedByRate(movies)
         break
       default:
-        newMovies = movies
+        // newMovies = newMovies
         break
     }
     return newMovies

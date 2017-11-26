@@ -11,7 +11,7 @@ import { Filters } from "../../components/Filters"
 
 const AllMoviesContainer = asReactiveLoader(
   class AllMoviesContainer extends Component {
-    state = { indexExpanded: null, sort: null }
+    state = { indexExpanded: null, sort: null, search: "" }
 
     handleExpand = index => {
       this.setState({ indexExpanded: index })
@@ -30,8 +30,19 @@ const AllMoviesContainer = asReactiveLoader(
       this.setState({ sort })
     }
 
-    handleChangeFilters(filter) {
-      console.log(filter)
+    handleChangeFilters(filter, type = "") {
+      switch (type) {
+        case "search":
+          this.setState({ search: filter })
+          break
+        case "watched":
+          break
+        case "favorite":
+          break
+        default:
+          break
+      }
+      console.log(filter, type)
     }
 
     render() {
@@ -40,7 +51,8 @@ const AllMoviesContainer = asReactiveLoader(
       // const movies = movieStore.moviesFilteredByTilte(this.props.user.movies)
       const movies = movieStore.applySortFilter(
         this.props.user.movies,
-        this.state.sort
+        this.state.sort,
+        this.state.search
       )
       return (
         <div className="movies-container">
