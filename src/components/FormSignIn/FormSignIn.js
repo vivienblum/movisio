@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
+import CircularProgress from "material-ui/CircularProgress"
 import { connect } from "../../stores"
 
 class FormSignIn extends Component {
@@ -33,12 +34,12 @@ class FormSignIn extends Component {
 
   handleUsernameChange(e) {
     const username = e.target.value
-    this.setState({ username, errorUsername: "" })
+    this.setState({ username, errorUsername: "", errorPassword: "" })
   }
 
   handlePasswordChange(e) {
     const password = e.target.value
-    this.setState({ password, errorPassword: "" })
+    this.setState({ password, errorUsername: "", errorPassword: "" })
   }
 
   render() {
@@ -51,11 +52,12 @@ class FormSignIn extends Component {
     } = this.state
     const valid = username !== "" && password.length >= 8
     return (
-      <Form>
+      <Form disabled>
         <TitleForm>LOG IN</TitleForm>
         <TextField
           floatingLabelText="Username"
           errorText={errorUsername}
+          disabled={launching}
           onChange={this.handleUsernameChange.bind(this)}
           value={username}
         />
@@ -63,11 +65,12 @@ class FormSignIn extends Component {
           floatingLabelText="Password"
           type="password"
           errorText={errorPassword}
+          disabled={launching}
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
         <RaisedButton
-          label={"text"}
+          label={launching ? <CircularProgress /> : "LOG IN"}
           style={{ marginTop: "15px" }}
           disabled={!valid || launching}
           onClick={this.handleSignIn.bind(this)}
