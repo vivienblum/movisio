@@ -9,11 +9,15 @@ export default class CollectionGrid extends Component {
   }
 
   renderLine(array) {
-    return array.map(line => {
-      return React.cloneElement(line, {
-        onClick: this.handleExpand.bind(this, line)
+    if (array instanceof Array) {
+      return array.map(line => {
+        return React.cloneElement(line, {
+          onClick: this.handleExpand.bind(this, line)
+        })
       })
-    })
+    } else {
+      return null
+    }
   }
 
   handleExpand = e => {
