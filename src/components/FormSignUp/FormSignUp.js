@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import TextField from "material-ui/TextField"
 import RaisedButton from "material-ui/RaisedButton"
+import CircularProgress from "material-ui/CircularProgress"
 import { connect } from "../../stores"
 
 class FormSignUp extends Component {
@@ -11,11 +12,13 @@ class FormSignUp extends Component {
     confirmPassword: "",
     email: "",
     errorUsername: "",
-    errorEmail: ""
+    errorEmail: "",
+    launching: false
   }
 
   handleSignUp() {
     const { username, password, email } = this.state
+    this.setState({ launching: true })
     return this.props.userStore
       .signUp({ user: { username, password, email } })
       .catch(err => {
@@ -39,6 +42,9 @@ class FormSignUp extends Component {
           default:
             break
         }
+      })
+      .then(() => {
+        this.setState({ launching: false })
       })
   }
 
@@ -69,7 +75,8 @@ class FormSignUp extends Component {
       confirmPassword,
       email,
       errorUsername,
-      errorEmail
+      errorEmail,
+      launching
     } = this.state
     const samePassword = password === confirmPassword
     const valid =
@@ -80,12 +87,14 @@ class FormSignUp extends Component {
         <TextField
           floatingLabelText="Username"
           errorText={errorUsername}
+          disabled={launching}
           onChange={this.handleUsernameChange.bind(this)}
           value={username}
         />
         <TextField
           floatingLabelText="Password"
           type="password"
+          disabled={launching}
           onChange={this.handlePasswordChange.bind(this)}
           value={password}
         />
@@ -93,6 +102,7 @@ class FormSignUp extends Component {
           floatingLabelText="Confirm Password"
           type="password"
           errorText={!samePassword && "Passwords must be the same."}
+          disabled={launching}
           onChange={this.handlePasswordConfirmationChange.bind(this)}
           value={confirmPassword}
         />
@@ -100,13 +110,14 @@ class FormSignUp extends Component {
           floatingLabelText="Email"
           type="email"
           errorText={errorEmail}
+          disabled={launching}
           onChange={this.handleEmailChange.bind(this)}
           value={email}
         />
         <RaisedButton
-          label="SIGN UP"
+          label={launching ? <CircularProgress /> : "SIGN UP"}
           style={{ marginTop: "15px" }}
-          disabled={!valid}
+          disabled={!valid || launching}
           onClick={this.handleSignUp.bind(this)}
         />
       </Form>
