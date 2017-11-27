@@ -9,19 +9,26 @@ class FormSignIn extends Component {
     username: "",
     password: "",
     errorUsername: "",
-    errorPassword: ""
+    errorPassword: "",
+    launching: false
   }
 
   handleSignIn() {
     const { username, password } = this.state
-    return this.props.userStore.login({ username, password }).catch(err => {
-      if (err.status === 401) {
-        this.setState({
-          errorUsername: "No user found or wrong username",
-          errorPassword: "No user found or wrong username"
-        })
-      }
-    })
+    this.setState({ launching: true })
+    return this.props.userStore
+      .login({ username, password })
+      .catch(err => {
+        if (err.status === 401) {
+          this.setState({
+            errorUsername: "No user found or wrong username",
+            errorPassword: "No user found or wrong username"
+          })
+        }
+      })
+      .then(() => {
+        this.setState({ launching: false })
+      })
   }
 
   handleUsernameChange(e) {
@@ -35,7 +42,13 @@ class FormSignIn extends Component {
   }
 
   render() {
-    const { username, password, errorUsername, errorPassword } = this.state
+    const {
+      username,
+      password,
+      errorUsername,
+      errorPassword,
+      launching
+    } = this.state
     const valid = username !== "" && password.length >= 8
     return (
       <Form>
@@ -54,9 +67,9 @@ class FormSignIn extends Component {
           value={password}
         />
         <RaisedButton
-          label="LOG IN"
+          label={"text"}
           style={{ marginTop: "15px" }}
-          disabled={!valid}
+          disabled={!valid || launching}
           onClick={this.handleSignIn.bind(this)}
         />
       </Form>
