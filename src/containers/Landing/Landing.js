@@ -26,6 +26,10 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Landing)
 
 const LandingContainer = styled.div`
+  background-image: url(${require("../../images/background_images/pexels-photo-66100.jpeg")});
+  //background-image: url(https://images.pexels.com/photos/96106/pexels-photo-96106.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
+  background-size: cover;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +44,7 @@ const SignContainer = styled.div`
     rgba(0, 0, 0, 0.117647) 0px 3px 4px;
   margin: 10px;
   padding: 10px;
+  background-color: ${Theme.whiteGrey};
 `
 
 const Separator = styled.div`
