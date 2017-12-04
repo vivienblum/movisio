@@ -13,7 +13,8 @@ class Landing extends Component {
   state = { image: null }
 
   componentWillMount() {
-    this.setState({ image: wallpapers[0] })
+    const image = wallpapers[Math.floor(Math.random() * wallpapers.length)]
+    this.setState({ image })
   }
 
   render() {
