@@ -5,10 +5,25 @@ import { FormSignIn } from "../../components/FormSignIn"
 import { FormSignUp } from "../../components/FormSignUp"
 import Theme from "../../styles/Theme"
 
+const wallpapers = [
+  "https://images.pexels.com/photos/96106/pexels-photo-96106.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
+]
+
 class Landing extends Component {
+  state = { image: null }
+
+  componentWillMount() {
+    this.setState({ image: wallpapers[0] })
+  }
+
   render() {
+    const { image } = this.state
     return (
-      <LandingContainer>
+      <LandingContainer
+        style={{
+          backgroundImage: `url(${image})`
+        }}
+      >
         <LogoImage src={require("../../images/logos/movisio-logo-black.png")} />
         <SignContainer>
           <FormSignIn />
@@ -26,7 +41,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Landing)
 
 const LandingContainer = styled.div`
-  background-image: url(${require("../../images/background_images/pexels-photo-66100.jpeg")});
+  //background-image: url(${require("../../images/background_images/pexels-photo-66100.jpeg")});
   //background-image: url(https://images.pexels.com/photos/96106/pexels-photo-96106.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
   background-size: cover;
   background-attachment: fixed;
