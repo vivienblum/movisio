@@ -6,7 +6,7 @@ Error: Undefined variable: "$MEDIUM_GREEN".
 5: 
 6:   .line-display {
 7:     min-height: 100px;
-8:     width: 100%;
+8:     width: 100vw;
 9:     background-color: $MEDIUM_GREEN;
 10:   }
 11:   .line-movie {
@@ -66,18 +66,17 @@ src/styles/scss/CollectionGrid.scss:9
 /home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
 /home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `each'
 /home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:320:in `block in watch'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin.rb:109:in `method_missing'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/exec/base.rb:52:in `parse'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/exec/base.rb:19:in `parse!'
+/home/anuswan/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/sass-3.5.3/bin/sass:13:in `<top (required)>'
+/home/anuswan/.rbenv/versions/2.3.0/bin/sass:23:in `load'
+/home/anuswan/.rbenv/versions/2.3.0/bin/sass:23:in `<main>'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$MEDIUM_GREEN\".\A         on line 9 of src/styles/scss/CollectionGrid.scss\A \A 4:   align-items: center;\A 5: \A 6:   .line-display {\A 7:     min-height: 100px;\A 8:     width: 100%;\A 9:     background-color: $MEDIUM_GREEN;\A 10:   }\A 11:   .line-movie {\A 12:     display: flex;\A 13:   }\A 14:   .collection-card {"; }
+  content: "Error: Undefined variable: \"$MEDIUM_GREEN\".\A         on line 9 of src/styles/scss/CollectionGrid.scss\A \A 4:   align-items: center;\A 5: \A 6:   .line-display {\A 7:     min-height: 100px;\A 8:     width: 100vw;\A 9:     background-color: $MEDIUM_GREEN;\A 10:   }\A 11:   .line-movie {\A 12:     display: flex;\A 13:   }\A 14:   .collection-card {"; }
