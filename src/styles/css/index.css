@@ -126,7 +126,7 @@ footer {
   align-items: center; }
   .collection-grid .line-display {
     min-height: 100px;
-    width: 100%;
+    width: 100vw;
     background-color: #c0ca33; }
   .collection-grid .line-movie {
     display: flex; }
