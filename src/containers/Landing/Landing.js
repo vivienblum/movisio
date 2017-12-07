@@ -17,16 +17,11 @@ const wallpapers = [
   "https://images.pexels.com/photos/326410/pexels-photo-326410.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/78944/industrial-sunset-furnace-rooftop-78944.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
-  "https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/7919/pexels-photo.jpg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/161212/rio-de-janeiro-olympics-2016-niteroi-brazil-161212.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/66100/pexels-photo-66100.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/90412/pexels-photo-90412.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/100500/pexels-photo-100500.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
-  "https://images.pexels.com/photos/6440/magazines-desk-work-workspace.jpg?w=940&h=650&auto=compress&cs=tinysrgb",
-  "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?w=940&h=650&auto=compress&cs=tinysrgb",
-  "https://images.pexels.com/photos/247932/pexels-photo-247932.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
-  "https://images.pexels.com/photos/458379/pexels-photo-458379.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/2990/vintage-old-film.jpg?w=940&h=650&auto=compress&cs=tinysrgb",
   "https://images.pexels.com/photos/261628/pexels-photo-261628.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"
 ]
