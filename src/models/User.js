@@ -1,9 +1,8 @@
 import { Model, Schema, parse } from "mobx-models"
-import { observable, extendObservable } from "mobx"
+import { extendObservable } from "mobx"
 import Cookie from "js-cookie"
 import page from "page"
 import { FetchResource } from "../resources"
-// import { shuffle } from "../resources/UIResource"
 import config from "../config"
 import Movie from "./Movie"
 
@@ -19,7 +18,6 @@ class User extends Model {
   name = ""
   email = ""
   password = ""
-  // movies = observable.array([])
 
   retrieve() {
     return new Promise((resolve, reject) => {
@@ -41,15 +39,7 @@ class User extends Model {
     return new Promise((resolve, reject) => {
       FetchResource.get(`${config.MOVISIO_API}/users/movies/all`)
         .then(data => {
-          // const temp = observable.array([])
-          // const movieSchema = new Schema(Movie)
-          // const parsed = movieSchema.parseRaw(data.movies)
-          // Object.assign(temp, parsed)
-          // this.movies = temp
-          // resolve(this.movies)
-
           this.movies = parse(data.movies, Movie.schema)
-          console.log(this.movies)
           resolve(this)
         })
         .catch(err => {
