@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { asReactiveLoader } from "mobx-models/reactiveLoader"
+import LinearProgress from "material-ui/LinearProgress"
 
 import { connect } from "../../stores"
 import { CollectionGrid } from "../../shared/collection"
@@ -8,6 +9,7 @@ import { MovieOwnedCard } from "../../components/MovieOwnedCard"
 import MovieExpanded from "./MovieExpanded"
 import { AddMovie } from "../../components/AddMovie"
 import { Filters } from "../../components/Filters"
+import Theme from "../../styles/Theme"
 
 const AllMoviesContainer = asReactiveLoader(
   class AllMoviesContainer extends Component {
@@ -70,7 +72,7 @@ const AllMoviesContainer = asReactiveLoader(
         this.state.favorite
       )
       // const movies = ["toto", "totot", "ototototo"]
-      console.log("chgt", movies.length)
+      // console.log("chgt", movies.length)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
@@ -79,7 +81,13 @@ const AllMoviesContainer = asReactiveLoader(
             onChangeSort={this.handleChangeSort.bind(this)}
             onChangeFilters={this.handleChangeFilters.bind(this)}
           />
-          {user.id === null && <h2>waiting</h2>}
+          {user.id === null && (
+            <LinearProgress
+              mode="indeterminate"
+              color={`${Theme.mediumGreen}`}
+              style={{ maxWidth: "70vw" }}
+            />
+          )}
           <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
             {movies.map((movie, i) => {
               return movie.owned ? (
