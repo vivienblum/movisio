@@ -78,6 +78,7 @@ const AllMoviesContainer = asReactiveLoader(
       )
       // const movies = ["toto", "totot", "ototototo"]
       console.log("chgt", movies.length)
+      //console.log(user.id)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
@@ -93,6 +94,7 @@ const AllMoviesContainer = asReactiveLoader(
               style={{ maxWidth: "70vw" }}
             />
           )}
+          {user.id !== null && movies.length === 0 && <h2>No movies</h2>}
           <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
             {movies.map((movie, i) => {
               return movie.owned ? (
