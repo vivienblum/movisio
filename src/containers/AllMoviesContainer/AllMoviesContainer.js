@@ -59,6 +59,7 @@ const AllMoviesContainer = asReactiveLoader(
     render() {
       const { indexExpanded } = this.state
       const { movieStore } = this.props
+      const { user } = this.props
 
       const movies = movieStore.applySortFilter(
         this.props.user.movies,
@@ -68,6 +69,8 @@ const AllMoviesContainer = asReactiveLoader(
         this.state.watched,
         this.state.favorite
       )
+      // const movies = ["toto", "totot", "ototototo"]
+      console.log("chgt", movies.length)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
@@ -76,6 +79,7 @@ const AllMoviesContainer = asReactiveLoader(
             onChangeSort={this.handleChangeSort.bind(this)}
             onChangeFilters={this.handleChangeFilters.bind(this)}
           />
+          {user.id === null && <h2>waiting</h2>}
           <CollectionGrid childToDisplay={this.getChildToDisplay(movies)}>
             {movies.map((movie, i) => {
               return movie.owned ? (
