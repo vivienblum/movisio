@@ -11,14 +11,15 @@ class User extends Model {
   constructor() {
     super()
     extendObservable(this, {
-      username: ""
+      username: "",
+      movies: []
     })
   }
   id = null
   name = ""
   email = ""
   password = ""
-  movies = observable.array([])
+  // movies = observable.array([])
 
   retrieve() {
     return new Promise((resolve, reject) => {
@@ -28,44 +29,7 @@ class User extends Model {
           const parsed = userSchema.parseRaw(data)
           Object.assign(this, parsed)
           this.getMovies()
-          // this.getMyMovies()
-          // this.getAllMovies()
           resolve(this)
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  }
-
-  /** @deprecated */
-  getAllMovies() {
-    return new Promise((resolve, reject) => {
-      FetchResource.get(`${config.MOVISIO_API}/movies`)
-        .then(data => {
-          const movieSchema = new Schema(Movie)
-          const parsed = movieSchema.parseRaw(data.movies)
-          Object.assign(this.allMovies, parsed)
-          resolve(this.allMovies)
-        })
-        .catch(err => {
-          reject(err)
-        })
-    })
-  }
-
-  /** @deprecated */
-  getMyMovies() {
-    return new Promise((resolve, reject) => {
-      FetchResource.get(`${config.MOVISIO_API}/users/${this.id}/movies`)
-        .then(data => {
-          // const movieSchema = new Schema(Movie)
-          // const parsed = movieSchema.parseRaw(data.movies)
-          //
-          // Object.assign(this.movies, parsed)
-          this.movies = parse(data.movies, Movie.schema)
-          // console.log(this.movies)
-          resolve(this.movies)
         })
         .catch(err => {
           reject(err)
@@ -77,10 +41,16 @@ class User extends Model {
     return new Promise((resolve, reject) => {
       FetchResource.get(`${config.MOVISIO_API}/users/movies/all`)
         .then(data => {
-          const movieSchema = new Schema(Movie)
-          const parsed = movieSchema.parseRaw(data.movies)
-          Object.assign(this.movies, parsed)
-          resolve(this.movies)
+          // const temp = observable.array([])
+          // const movieSchema = new Schema(Movie)
+          // const parsed = movieSchema.parseRaw(data.movies)
+          // Object.assign(temp, parsed)
+          // this.movies = temp
+          // resolve(this.movies)
+
+          this.movies = parse(data.movies, Movie.schema)
+          console.log(this.movies)
+          resolve(this)
         })
         .catch(err => {
           reject(err)
