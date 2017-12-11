@@ -22,11 +22,6 @@ const AllMoviesContainer = asReactiveLoader(
       favorite: null
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-      //  TODO more
-      return nextProps.user.id !== null
-    }
-
     handleExpand = index => {
       this.setState({ indexExpanded: index })
     }
@@ -76,9 +71,6 @@ const AllMoviesContainer = asReactiveLoader(
         this.state.watched,
         this.state.favorite
       )
-      // const movies = ["toto", "totot", "ototototo"]
-      console.log("chgt", movies.length)
-      //console.log(user.id)
       return (
         <div className="movies-container">
           <h1>All Movies</h1>
